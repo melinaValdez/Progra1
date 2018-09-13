@@ -16,5 +16,56 @@ public class Libreria {
     private String telefono;
     private String horario;
     
-    public Libreria()
+    //Constructores
+    public Libreria(String pNombre){
+        nombre = pNombre;
+    }
+    public Libreria(String pNombre, String pPais, String pTelefono, String pHorario){
+        nombre = pNombre;
+        pais = pPais;
+        telefono = pTelefono;
+        horario = pHorario;
+    }
+    
+    //Getters y Setters
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
 }
