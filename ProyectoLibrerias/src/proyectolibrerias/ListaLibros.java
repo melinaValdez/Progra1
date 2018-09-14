@@ -92,4 +92,11 @@ public void remove(){
         this.current = this.current.getPrevious();
         return true;
     }
+    public void goToStart(){
+        this.current = this.head;
+    }
+
+    public void goToEnd(){
+        this.current = this.tail;
+    }
 }

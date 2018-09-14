@@ -15,6 +15,7 @@ public class Libreria {
     private String ubicacion;
     private String telefono;
     private String horario;
+    private ListaLibros listaLibros;
     
     //Constructores
     public Libreria(String pNombre){
@@ -67,5 +68,13 @@ public class Libreria {
 
     public void setHorario(String horario) {
         this.horario = horario;
+    }
+
+    public ListaLibros getListaLibros() {
+        return listaLibros;
+    }
+
+    public void setListaLibros(ListaLibros listaLibros) {
+        this.listaLibros = listaLibros;
     }
 }

@@ -30,8 +30,7 @@ public class NodoLibreria {
         this.next = next;
     }
 
-    //métodos
-
+    //Métodos
     public Libreria getLibreria() {
         return this.libreria;
     }
@@ -47,5 +46,4 @@ public class NodoLibreria {
     public void setNext(NodoLibreria next) {
         this.next = next;
     }
-}
 }
