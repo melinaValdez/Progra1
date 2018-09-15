@@ -42,7 +42,7 @@ public class AgregarLibro extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         lblDatos = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         lblPrecio = new javax.swing.JLabel();
         lblCantDisponible = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
@@ -73,12 +73,12 @@ public class AgregarLibro extends javax.swing.JFrame {
         lblDatos.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
         lblDatos.setText("Datos del libro");
         getContentPane().add(lblDatos);
-        lblDatos.setBounds(240, 20, 228, 48);
+        lblDatos.setBounds(260, 20, 228, 48);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
-        jLabel2.setText("Nombre:");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(41, 89, 75, 27);
+        lblNombre.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
+        lblNombre.setText("Nombre:");
+        getContentPane().add(lblNombre);
+        lblNombre.setBounds(41, 89, 75, 27);
 
         lblPrecio.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblPrecio.setText("Precio:");
@@ -140,7 +140,7 @@ public class AgregarLibro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAceptar);
-        btnAceptar.setBounds(330, 480, 99, 58);
+        btnAceptar.setBounds(340, 490, 99, 58);
 
         txtDescripcion.setColumns(20);
         txtDescripcion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
@@ -148,7 +148,7 @@ public class AgregarLibro extends javax.swing.JFrame {
         jScrollPane2.setViewportView(txtDescripcion);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(40, 310, 650, 150);
+        jScrollPane2.setBounds(40, 310, 700, 160);
 
         lblLibreria.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblLibreria.setText("Libreria:");
@@ -251,7 +251,6 @@ public class AgregarLibro extends javax.swing.JFrame {
     private javax.swing.JButton btnAceptar;
     private javax.swing.JComboBox<String> cbLibreria;
     private javax.swing.JComboBox<String> cbTema;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField4;
@@ -262,6 +261,7 @@ public class AgregarLibro extends javax.swing.JFrame {
     private javax.swing.JLabel lblDatos;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblLibreria;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JSpinner spCantidad;
     private javax.swing.JSpinner spPrecio;
