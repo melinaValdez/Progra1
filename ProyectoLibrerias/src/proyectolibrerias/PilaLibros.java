@@ -5,8 +5,8 @@ package proyectolibrerias;
  *
  * @author Jose Daniel
  */
-public class LibrosVistosPila {
-     // Puntero que indica el inicio de la pila o tambein conocida como el
+public class PilaLibros {
+     // Puntero que indica el inicio de la pila o tambien conocida como el
     // tope de la pila.
     private NodoLibrosVistos inicio;
     // Variable para registrar el tamaño de la pila.

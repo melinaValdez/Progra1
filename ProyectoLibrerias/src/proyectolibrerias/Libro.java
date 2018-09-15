@@ -15,16 +15,16 @@ public class Libro {
     public String descripcion;
     public int cantVendida;
     public int cantDisponible;
-    public float precio;
-    public Tema tema;
+    public int precio;
+    public String tema;
     
     //Constructor
-    public Libro(String pNombre, float pPrecio, int pCantDisponible, Tema pTema){
+    public Libro(String pNombre, int pPrecio, int pCantDisponible, String pTema){
         issn++;
         nombre = pNombre;
         precio = pPrecio;
         cantDisponible = pCantDisponible;
-        tema = pTema;
+        tema = pTema.toUpperCase();
     }
     
     
@@ -65,11 +65,11 @@ public class Libro {
         this.cantDisponible = cantDisponible;
     }
 
-    public float getPrecio() {
+    public int getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
     

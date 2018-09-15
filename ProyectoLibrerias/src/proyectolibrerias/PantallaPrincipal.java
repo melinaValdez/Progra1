@@ -33,21 +33,32 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lblAdministrador = new javax.swing.JLabel();
         lblCliente = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
+        btnAgregarLibro = new javax.swing.JButton();
+        lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bienvenido");
-        setBackground(new java.awt.Color(204, 51, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("PantallaPrincipal"); // NOI18N
+        setSize(new java.awt.Dimension(450, 550));
+        getContentPane().setLayout(null);
 
         lblBienvenido.setFont(new java.awt.Font("Sitka Small", 0, 48)); // NOI18N
         lblBienvenido.setText("Bienvenido");
         lblBienvenido.setName("LblBienvenido"); // NOI18N
+        getContentPane().add(lblBienvenido);
+        lblBienvenido.setBounds(256, 13, 269, 61);
 
         lblAdministrador.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-        lblAdministrador.setText("Opciones de administrador");
+        lblAdministrador.setText("Opciones del administrador");
+        getContentPane().add(lblAdministrador);
+        lblAdministrador.setBounds(44, 92, 211, 25);
+        lblAdministrador.getAccessibleContext().setAccessibleName("LblAdministradores");
 
         lblCliente.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         lblCliente.setText("Opciones del cliente");
+        getContentPane().add(lblCliente);
+        lblCliente.setBounds(536, 92, 155, 25);
 
         btnBuscar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         btnBuscar.setText("Buscar Libros");
@@ -57,42 +68,24 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnBuscar);
+        btnBuscar.setBounds(536, 130, 137, 56);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(256, 256, 256)
-                .addComponent(lblBienvenido)
-                .addContainerGap(286, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(lblAdministrador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblCliente)))
-                .addGap(120, 120, 120))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblBienvenido)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAdministrador)
-                    .addComponent(lblCliente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(383, Short.MAX_VALUE))
-        );
+        btnAgregarLibro.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnAgregarLibro.setText("Agregar libro");
+        btnAgregarLibro.setToolTipText("");
+        btnAgregarLibro.setName("btnBuscar"); // NOI18N
+        btnAgregarLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarLibroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAgregarLibro);
+        btnAgregarLibro.setBounds(76, 130, 137, 56);
 
-        lblAdministrador.getAccessibleContext().setAccessibleName("LblAdministradores");
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pantalla Principal background.jpg"))); // NOI18N
+        getContentPane().add(lblBackground);
+        lblBackground.setBounds(-60, -170, 850, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -102,6 +95,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         BusquedaLibros busquedaLibros = new BusquedaLibros();
         busquedaLibros.setVisible(true);
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnAgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibroActionPerformed
+        // TODO add your handling code here:
+        AgregarLibro vAgregarLibro = new AgregarLibro();
+        vAgregarLibro.setVisible(true);
+    }//GEN-LAST:event_btnAgregarLibroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,8 +138,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarLibro;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JLabel lblAdministrador;
+    private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblBienvenido;
     private javax.swing.JLabel lblCliente;
     // End of variables declaration//GEN-END:variables
