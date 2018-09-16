@@ -22,10 +22,10 @@ public class Libreria {
         nombre = pNombre;
     }
     public Libreria(String pNombre, String pPais, String pTelefono, String pHorario){
-        nombre = pNombre;
-        pais = pPais;
-        telefono = pTelefono;
-        horario = pHorario;
+        nombre = pNombre.toLowerCase();
+        pais = pPais.toLowerCase();
+        telefono = pTelefono.toLowerCase();
+        horario = pHorario.toLowerCase();
     }
     
     //Getters y Setters

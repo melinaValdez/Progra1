@@ -16,37 +16,54 @@ public class ListaLibrerias {
     private NodoLibreria tail;
     private int position;
     private int size;
-
+    private static ListaLibrerias instance = null;
+    
     //constructores LinkedList
 
     /**
      * Contructor predeterminado
      */
-    public ListaLibrerias() {
+    protected ListaLibrerias() {
         this.head = new NodoLibreria();
         this.current = this.head;
         this.tail = this.head;
         this.size = 0;
         this.position = -1;
     }
-    public void insert(Libreria pLibreria) {
+    //Metodo de patron singleton utilizado para mantener una sola lista en todo el programa
+    public static ListaLibrerias getInstance() {
+       if(instance == null) {
+          instance = new ListaLibrerias();
+       }
+       return instance;
+    }
+    
+    public boolean insert(Libreria pLibreria) {
         //insertar en cualquier posición
-        NodoLibreria newNode = new NodoLibreria(pLibreria, this.current.getNext());
-        this.current.setNext(newNode);
-        //necesario si se está insertando al final de la lista
-        if (this.current == this.tail) {
-            this.tail = tail.getNext();
+        boolean verificar = verificar(pLibreria.getNombre());
+        if (verificar){
+            NodoLibreria newNode = new NodoLibreria(pLibreria, this.current.getNext());
+            this.current.setNext(newNode);
+            //necesario si se está insertando al final de la lista
+            if (this.current == this.tail) {
+                this.tail = tail.getNext();
+            }
+            this.size++;
         }
-        this.size++;
+        return verificar;
 
     }
 
-    public void append(Libreria pLibreria) {
-        //siempre se pega al final de la lista
-        NodoLibreria newNode = new NodoLibreria(pLibreria);
-        this.tail.setNext(newNode);
-        this.tail = newNode;
-        this.size++;
+    public boolean append(Libreria pLibreria) {
+        //Siempre se pega al final de la lista
+        boolean verificar = verificar(pLibreria.getNombre());
+        if (verificar){
+            NodoLibreria newNode = new NodoLibreria(pLibreria);
+            this.tail.setNext(newNode);
+            this.tail = newNode;
+            this.size++;
+        }
+        return verificar;
     }
 
     public void remove() {
@@ -128,20 +145,36 @@ public class ListaLibrerias {
         this.current = this.tail;
         this.position = this.size - 1;
     }
-
-    public void goToPos(int pos) {
+    //En el siguiente metodo, se usa una posicion especifica para obtener un elemento de la lista
+    public Libreria goToPos(int pos) {
         if (pos < 0 || pos >= this.size) {
             System.out.println("Posición inválida");
-            return;
+            return null;
         }
-        if (pos > this.position) {
-            while (pos > this.position) {
-                this.next();
+        int temp = 0;
+        current = head.getNext();
+        while (temp != pos){
+            current = current.getNext();
+            temp++;
+        }
+        return current.getLibreria();
+    }
+    //Metodo para validar la entrada de nuevas librerias
+    public boolean verificar(String pNombre){
+        String verificador;
+        //Se busca que ya no haya otra libreria registrada con ese nombre
+        for (int pos = 0; pos < size; pos++){
+            Libreria temporal = goToPos(pos);
+            if (temporal == null){
+                return false;
             }
-        } else if (pos < this.position) {
-            while (pos < this.position) {
-                this.previous();
+            else{
+                verificador = temporal.getNombre();
+                if (verificador.equals(pNombre)){
+                    return false;
+                }
             }
         }
+        return true;
     }
 }

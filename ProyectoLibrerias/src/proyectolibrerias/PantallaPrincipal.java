@@ -34,6 +34,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lblCliente = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
         btnAgregarLibro = new javax.swing.JButton();
+        btnAgregarLibreria = new javax.swing.JButton();
         lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,7 +82,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAgregarLibro);
-        btnAgregarLibro.setBounds(76, 130, 137, 56);
+        btnAgregarLibro.setBounds(70, 130, 137, 56);
+
+        btnAgregarLibreria.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnAgregarLibreria.setText("Agregar librería");
+        btnAgregarLibreria.setToolTipText("");
+        btnAgregarLibreria.setName("btnBuscar"); // NOI18N
+        btnAgregarLibreria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarLibreriaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAgregarLibreria);
+        btnAgregarLibreria.setBounds(70, 220, 137, 56);
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pantalla Principal background.jpg"))); // NOI18N
         getContentPane().add(lblBackground);
@@ -101,6 +114,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         AgregarLibro vAgregarLibro = new AgregarLibro();
         vAgregarLibro.setVisible(true);
     }//GEN-LAST:event_btnAgregarLibroActionPerformed
+
+    private void btnAgregarLibreriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibreriaActionPerformed
+        // TODO add your handling code here:
+        AgregarLibreria vAgregarLibreria = new AgregarLibreria();
+        vAgregarLibreria.setVisible(true);
+    }//GEN-LAST:event_btnAgregarLibreriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,6 +157,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarLibreria;
     private javax.swing.JButton btnAgregarLibro;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JLabel lblAdministrador;

@@ -7,7 +7,6 @@ package proyectolibrerias;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
 /**
  *
  * @author Melina
@@ -49,7 +48,6 @@ public class AgregarLibreria extends javax.swing.JFrame {
         lblNombre1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblNombre1.setText("Nombre:");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         lblDatosLibreria.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
@@ -182,6 +180,20 @@ public class AgregarLibreria extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(panel, "Por favor, indique el nombre de la librería.", "Error", JOptionPane.ERROR_MESSAGE);
         }
         else{
+            Libreria nuevaLibreria = new Libreria(txtNombre.getText(),txtPais.getText(),txtTelefono.getText(),txtHorario.getText());
+            ListaLibrerias listaLibs = ListaLibrerias.getInstance();
+            boolean insertar = listaLibs.insert(nuevaLibreria);
+            if(insertar){
+                JOptionPane.showMessageDialog(panel, "La libreria se insertó correctamente.", "Lista agregada", JOptionPane.INFORMATION_MESSAGE);
+                txtNombre.setText("");
+                txtPais.setText("");
+                txtHorario.setText("");
+                txtTelefono.setText("");
+                txtUbicacion.setText("");
+            }
+            else{
+                JOptionPane.showMessageDialog(panel, "Ya existe una librería con este nombre.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
