@@ -26,7 +26,8 @@ public class AgregarLibro extends javax.swing.JFrame {
         cbTema.addItem("HISTORIA");
         cbTema.addItem("MATEMATICA");
         cbTema.addItem("LITERATURA");
-        cbLibreria.removeAllItems();
+        setLibraries();
+        
     }
 
     /**
@@ -67,7 +68,6 @@ public class AgregarLibro extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jTextPane1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         lblDatos.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
@@ -167,11 +167,27 @@ public class AgregarLibro extends javax.swing.JFrame {
         lblAgregarLibroBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pantalla Principal background.jpg"))); // NOI18N
         lblAgregarLibroBackground.setText("jLabel1");
         getContentPane().add(lblAgregarLibroBackground);
-        lblAgregarLibroBackground.setBounds(0, 0, 790, 590);
+        lblAgregarLibroBackground.setBounds(0, 0, 840, 590);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //Funcion para agregar al JComboBox las opciones de las librerias disponibles
+    private void setLibraries(){
+        cbLibreria.removeAllItems();
+        JPanel panel = new JPanel();
+        ListaLibrerias listaLibs = ListaLibrerias.getInstance();
+        if (listaLibs.getSize() == 0){
+            JOptionPane.showMessageDialog(panel, "Actualmente no hay librerías disponibles.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            int indice = 0;
+            while (indice < listaLibs.getSize()){
+                Libreria temporal = listaLibs.goToPos(indice);
+                cbLibreria.addItem(temporal.getNombre().toUpperCase());
+                indice++;
+            }
+        }
+    }
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
@@ -201,6 +217,18 @@ public class AgregarLibro extends javax.swing.JFrame {
             int cantidad = Integer.parseInt(spCantidad.getValue().toString());
             Libro nuevoLibro = new Libro(txtNombre.getText(),precio,cantidad,cbTema.getSelectedItem().toString());
             nuevoLibro.setDescripcion(txtDescripcion.getText());
+            ListaLibrerias listaLibs =  ListaLibrerias.getInstance();
+            String nombreLib = cbLibreria.getSelectedItem().toString();
+            int indice = 0;
+            while (indice < listaLibs.getSize()){
+                Libreria temporal = listaLibs.goToPos(indice);
+                if (temporal.getNombre().equals(nombreLib)){
+                    temporal.getListaLibros().append(nuevoLibro);
+                    break;
+                }
+                indice++;
+            }
+            JOptionPane.showMessageDialog(panel, "El libro ha sido agregado correctamente.", "Libro agregado", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 

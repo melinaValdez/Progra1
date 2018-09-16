@@ -26,6 +26,7 @@ public class ProyectoLibrerias {
         Lehman.getListaLibros().insert(elSenorDeLosAnillos);
         listaLibrerias.append(Lehman);
         PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+        pantallaPrincipal.setSize(815, 607);
         pantallaPrincipal.setVisible(true);
     }
 }

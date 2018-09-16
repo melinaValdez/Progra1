@@ -16,11 +16,11 @@ public class Cliente {
     String telefono;
     String correo;
     public Cliente(String cedula, String nombre, String direccion, String telefono, String correo) {
-            this.cedula = cedula;
-            this.nombre = nombre;
-            this.direccion = direccion;
-            this.telefono = telefono;
-            this.correo = correo;
+            this.cedula = cedula.toLowerCase();
+            this.nombre = nombre.toLowerCase();
+            this.direccion = direccion.toLowerCase();
+            this.telefono = telefono.toLowerCase();
+            this.correo = correo.toLowerCase();
     }
 
     public Cliente() {

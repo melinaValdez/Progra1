@@ -48,7 +48,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lblBienvenido.setText("Bienvenido");
         lblBienvenido.setName("LblBienvenido"); // NOI18N
         getContentPane().add(lblBienvenido);
-        lblBienvenido.setBounds(256, 13, 269, 61);
+        lblBienvenido.setBounds(260, 20, 269, 61);
 
         lblAdministrador.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         lblAdministrador.setText("Opciones del administrador");
@@ -98,7 +98,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pantalla Principal background.jpg"))); // NOI18N
         getContentPane().add(lblBackground);
-        lblBackground.setBounds(-60, -170, 850, 720);
+        lblBackground.setBounds(-10, -20, 810, 630);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -112,12 +112,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void btnAgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibroActionPerformed
         // TODO add your handling code here:
         AgregarLibro vAgregarLibro = new AgregarLibro();
+        vAgregarLibro.setSize(815, 607);
         vAgregarLibro.setVisible(true);
     }//GEN-LAST:event_btnAgregarLibroActionPerformed
 
     private void btnAgregarLibreriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibreriaActionPerformed
         // TODO add your handling code here:
         AgregarLibreria vAgregarLibreria = new AgregarLibreria();
+        vAgregarLibreria.setSize(815, 607);
         vAgregarLibreria.setVisible(true);
     }//GEN-LAST:event_btnAgregarLibreriaActionPerformed
 

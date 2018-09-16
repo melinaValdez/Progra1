@@ -48,37 +48,38 @@ public class AgregarLibreria extends javax.swing.JFrame {
         lblNombre1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblNombre1.setText("Nombre:");
 
+        setSize(new java.awt.Dimension(815, 607));
         getContentPane().setLayout(null);
 
         lblDatosLibreria.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
         lblDatosLibreria.setText("Datos de la librería");
         getContentPane().add(lblDatosLibreria);
-        lblDatosLibreria.setBounds(220, 10, 292, 48);
+        lblDatosLibreria.setBounds(220, 30, 292, 48);
 
         lblNombre.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblNombre.setText("Nombre:");
         getContentPane().add(lblNombre);
-        lblNombre.setBounds(20, 90, 75, 27);
+        lblNombre.setBounds(20, 110, 75, 27);
 
         lblPais.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblPais.setText("País:");
         getContentPane().add(lblPais);
-        lblPais.setBounds(410, 90, 37, 27);
+        lblPais.setBounds(410, 110, 37, 27);
 
         lblTelefono.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblTelefono.setText("Teléfono:");
         getContentPane().add(lblTelefono);
-        lblTelefono.setBounds(370, 180, 77, 27);
+        lblTelefono.setBounds(380, 220, 77, 27);
 
         lblHorario.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblHorario.setText("Horario:");
         getContentPane().add(lblHorario);
-        lblHorario.setBounds(20, 180, 68, 27);
+        lblHorario.setBounds(20, 220, 68, 27);
 
         lblUbicacion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblUbicacion.setText("Ubicación detallada:");
         getContentPane().add(lblUbicacion);
-        lblUbicacion.setBounds(40, 240, 167, 27);
+        lblUbicacion.setBounds(20, 300, 167, 27);
 
         txtNombre.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         txtNombre.setToolTipText("");
@@ -88,7 +89,7 @@ public class AgregarLibreria extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtNombre);
-        txtNombre.setBounds(110, 90, 236, 27);
+        txtNombre.setBounds(110, 110, 236, 27);
 
         txtPais.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         txtPais.setToolTipText("");
@@ -98,7 +99,7 @@ public class AgregarLibreria extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtPais);
-        txtPais.setBounds(460, 90, 236, 26);
+        txtPais.setBounds(470, 110, 236, 26);
 
         txtTelefono.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         txtTelefono.setToolTipText("");
@@ -108,7 +109,7 @@ public class AgregarLibreria extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtTelefono);
-        txtTelefono.setBounds(110, 180, 236, 26);
+        txtTelefono.setBounds(110, 220, 236, 26);
 
         txtHorario.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         txtHorario.setToolTipText("");
@@ -118,14 +119,15 @@ public class AgregarLibreria extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtHorario);
-        txtHorario.setBounds(460, 180, 236, 26);
+        txtHorario.setBounds(470, 220, 236, 26);
 
         txtUbicacion.setColumns(20);
+        txtUbicacion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         txtUbicacion.setRows(5);
         jScrollPane1.setViewportView(txtUbicacion);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(220, 248, 466, 96);
+        jScrollPane1.setBounds(200, 310, 466, 110);
 
         btnAceptar.setText("Aceptar");
         btnAceptar.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -143,12 +145,12 @@ public class AgregarLibreria extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAceptar);
-        btnAceptar.setBounds(330, 370, 99, 58);
+        btnAceptar.setBounds(320, 460, 99, 58);
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pantalla Principal background.jpg"))); // NOI18N
         lblBackground.setText("jLabel1");
         getContentPane().add(lblBackground);
-        lblBackground.setBounds(-10, -40, 830, 600);
+        lblBackground.setBounds(0, -10, 830, 610);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -192,7 +194,7 @@ public class AgregarLibreria extends javax.swing.JFrame {
                 txtUbicacion.setText("");
             }
             else{
-                JOptionPane.showMessageDialog(panel, "Ya existe una librería con este nombre.", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(panel, "Ya existe una librería con este nombre.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
