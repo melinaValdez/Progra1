@@ -16,11 +16,17 @@ public class Libreria {
     private String telefono;
     private String horario;
     private ListaLibros listaLibros;
-    
+ 
     //Constructores
     public Libreria(String pNombre){
         nombre = pNombre;
     }
+
+    public Libreria() {
+    }
+    
+    
+    
     public Libreria(String pNombre, String pPais, String pTelefono, String pHorario){
         nombre = pNombre.toLowerCase();
         pais = pPais.toLowerCase();

@@ -26,6 +26,11 @@ public class Libro {
         cantDisponible = pCantDisponible;
         tema = pTema.toLowerCase();
     }
+
+    public Libro() {
+    }
+    
+    
     
     
     //Getters y setters
@@ -71,6 +76,14 @@ public class Libro {
 
     public void setPrecio(int precio) {
         this.precio = precio;
+    }
+
+    public String getTema() {
+        return tema;
+    }
+
+    public void setTema(String tema) {
+        this.tema = tema;
     }
     
 }
