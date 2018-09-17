@@ -105,8 +105,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        BusquedaLibros busquedaLibros = new BusquedaLibros();
-        busquedaLibros.setVisible(true);
+        BuscarLibros buscarLibros = new BuscarLibros();
+        buscarLibros.setVisible(true);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibroActionPerformed
