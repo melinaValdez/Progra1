@@ -10,7 +10,8 @@ package proyectolibrerias;
  * @author Melina
  */
 public class Libro {
-    public static int issn;
+    private static int issnContador;
+    public int issn;
     public String nombre;
     public String descripcion;
     public int cantVendida;
@@ -20,16 +21,17 @@ public class Libro {
     
     //Constructor
     public Libro(String pNombre, int pPrecio, int pCantDisponible, String pTema){
-        issn++;
-        nombre = pNombre.toLowerCase();
+        issnContador++;
+        issn = issnContador;
+        nombre = pNombre.toUpperCase();
         precio = pPrecio;
         cantDisponible = pCantDisponible;
-        tema = pTema.toLowerCase();
+        tema = pTema.toUpperCase();
     }
     
     
     //Getters y setters
-    public static int getIssn() {
+    public int getIssn() {
         return issn;
     }
 

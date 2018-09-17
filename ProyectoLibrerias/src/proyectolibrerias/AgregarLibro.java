@@ -183,7 +183,7 @@ public class AgregarLibro extends javax.swing.JFrame {
             int indice = 0;
             while (indice < listaLibs.getSize()){
                 Libreria temporal = listaLibs.goToPos(indice);
-                cbLibreria.addItem(temporal.getNombre().toUpperCase());
+                cbLibreria.addItem(temporal.getNombre());
                 indice++;
             }
         }
@@ -203,6 +203,7 @@ public class AgregarLibro extends javax.swing.JFrame {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
         JPanel panel = new JPanel();
+        boolean valido = false;
         if (txtNombre.getText().isEmpty()){
             JOptionPane.showMessageDialog(panel, "Por favor, indique el nombre del libro.", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -218,18 +219,25 @@ public class AgregarLibro extends javax.swing.JFrame {
             Libro nuevoLibro = new Libro(txtNombre.getText(),precio,cantidad,cbTema.getSelectedItem().toString());
             nuevoLibro.setDescripcion(txtDescripcion.getText());
             ListaLibrerias listaLibs =  ListaLibrerias.getInstance();
-            String nombreLib = cbLibreria.getSelectedItem().toString();
+            String nombreLib = cbLibreria.getSelectedItem().toString().toUpperCase();
             int indice = 0;
             while (indice < listaLibs.getSize()){
                 Libreria temporal = listaLibs.goToPos(indice);
+                System.out.println("Nombre temporal: " + temporal.getNombre());
                 if (temporal.getNombre().equals(nombreLib)){
                     temporal.getListaLibros().append(nuevoLibro);
                     break;
                 }
                 indice++;
             }
+            txtNombre.setText("");
+            spPrecio.setValue(0);
+            spCantidad.setValue(0);
+            txtDescripcion.setText("");
+            cbTema.setSelectedIndex(0);
+            cbLibreria.setSelectedIndex(0);
             JOptionPane.showMessageDialog(panel, "El libro ha sido agregado correctamente.", "Libro agregado", JOptionPane.INFORMATION_MESSAGE);
-        }
+        }    
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnAceptarAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_btnAceptarAncestorAdded

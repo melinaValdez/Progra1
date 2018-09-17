@@ -20,12 +20,14 @@ public class Libreria {
     //Constructores
     public Libreria(String pNombre){
         nombre = pNombre;
+        listaLibros = new ListaLibros();
     }
     public Libreria(String pNombre, String pPais, String pTelefono, String pHorario){
-        nombre = pNombre.toLowerCase();
-        pais = pPais.toLowerCase();
-        telefono = pTelefono.toLowerCase();
-        horario = pHorario.toLowerCase();
+        nombre = pNombre.toUpperCase();
+        pais = pPais.toUpperCase();
+        telefono = pTelefono.toUpperCase();
+        horario = pHorario.toUpperCase();
+        listaLibros = new ListaLibros();
     }
     
     //Getters y Setters

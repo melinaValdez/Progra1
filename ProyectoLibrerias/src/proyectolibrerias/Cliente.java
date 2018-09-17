@@ -15,15 +15,22 @@ public class Cliente {
     String direccion;
     String telefono;
     String correo;
+    ListaLibros listaPedidos;
     public Cliente(String cedula, String nombre, String direccion, String telefono, String correo) {
-            this.cedula = cedula.toLowerCase();
-            this.nombre = nombre.toLowerCase();
-            this.direccion = direccion.toLowerCase();
-            this.telefono = telefono.toLowerCase();
-            this.correo = correo.toLowerCase();
+            this.cedula = cedula.toUpperCase();
+            this.nombre = nombre.toUpperCase();
+            this.direccion = direccion.toUpperCase();
+            this.telefono = telefono.toUpperCase();
+            this.correo = correo.toUpperCase();
+            listaPedidos = new ListaLibros();
     }
 
-    public Cliente() {
+    public Cliente(String cedula, String nombre, String direccion, String correo) {
+            this.cedula = cedula.toUpperCase();
+            this.nombre = nombre.toUpperCase();
+            this.direccion = direccion.toUpperCase();
+            this.correo = correo.toUpperCase();
+            listaPedidos = new ListaLibros();
     }
 
     public String getCedula() {

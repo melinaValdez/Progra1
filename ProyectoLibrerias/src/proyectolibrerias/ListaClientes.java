@@ -9,40 +9,40 @@ package proyectolibrerias;
  *
  * @author Melina
  */
-public class ListaLibrerias {
-     //atributos LinkedList
-    private NodoLibreria head;
-    private NodoLibreria current;
-    private NodoLibreria tail;
+public class ListaClientes {
+    private NodoCliente head;
+    private NodoCliente current;
+    private NodoCliente next;
+    private NodoCliente tail;
     private int position;
     private int size;
-    private static ListaLibrerias instance = null;
+    private static ListaClientes instance = null;
     
     //constructores LinkedList
 
     /**
      * Contructor predeterminado
      */
-    protected ListaLibrerias() {
-        this.head = new NodoLibreria();
+    protected ListaClientes() {
+        this.head = new NodoCliente();
         this.current = this.head;
         this.tail = this.head;
         this.size = 0;
         this.position = -1;
     }
     //Metodo de patron singleton utilizado para mantener una sola lista de librerias en todo el programa
-    public static ListaLibrerias getInstance() {
+    public static ListaClientes getInstance() {
        if(instance == null) {
-          instance = new ListaLibrerias();
+          instance = new ListaClientes();
        }
        return instance;
     }
     
-    public boolean insert(Libreria pLibreria) {
+    public boolean insert(Cliente pCliente) {
         //insertar en cualquier posición
-        boolean verificar = verificar(pLibreria.getNombre());
+        boolean verificar = verificar(pCliente.getCedula());
         if (verificar){
-            NodoLibreria newNode = new NodoLibreria(pLibreria, this.current.getNext());
+            NodoCliente newNode = new NodoCliente(pCliente, this.current.getNext());
             this.current.setNext(newNode);
             //necesario si se está insertando al final de la lista
             if (this.current == this.tail) {
@@ -54,11 +54,11 @@ public class ListaLibrerias {
 
     }
 
-    public boolean append(Libreria pLibreria) {
+    public boolean append(Cliente pCliente) {
         //Siempre se pega al final de la lista
-        boolean verificar = verificar(pLibreria.getNombre());
+        boolean verificar = verificar(pCliente.getCedula());
         if (verificar){
-            NodoLibreria newNode = new NodoLibreria(pLibreria);
+            NodoCliente newNode = new NodoCliente(pCliente);
             this.tail.setNext(newNode);
             this.tail = newNode;
             this.size++;
@@ -74,7 +74,7 @@ public class ListaLibrerias {
         } //también if (this.size == 0) ...
 
         //en temp se va a almacenar el nodo ANTERIOR al que se quiere borrar
-        NodoLibreria temp = head;
+        NodoCliente temp = head;
         while (temp.getNext() != this.current) {
             temp = temp.getNext();
         }
@@ -92,61 +92,64 @@ public class ListaLibrerias {
         //disminuir el tamaño
         this.size--;
     }
-
+    //Funcion para eliminar todos los nodos de la lista
     public void clear() {
-        this.head = this.tail = this.current = new NodoLibreria();
+        this.head = this.tail = this.current = new NodoCliente();
         this.position = -1;
         this.size = 0;
     }
 
-    public Libreria getLibreria(){
-        return this.current.getLibreria();
+    //Getters and Setters
+    public NodoCliente getHead() {
+        return head;
     }
 
-    public int getSize() {
-        return this.size;
+    public void setHead(NodoCliente head) {
+        this.head = head;
     }
 
-    public boolean next() {
-        if (this.current == this.tail) {
-            System.out.println("Actualmente en último nodo, no se puede avanzar");
-            return false;
-        }
-        this.current = this.current.getNext();
-        this.position++;
-        return true;
+    public NodoCliente getCurrent() {
+        return current;
     }
 
-    public boolean previous() {
-        if (this.current == this.head) {
-            System.out.println("Actualmente en primer nodo, no se puede retroceder");
-            return false;
-        }
-        NodoLibreria temp = head;
-        this.position = -1;
-        while (temp.getNext() != this.current) {
-            temp = temp.getNext();
-            this.position++;
-        }
-        this.current = temp;
-        return true;
+    public void setCurrent(NodoCliente current) {
+        this.current = current;
+    }
+
+    public NodoCliente getTail() {
+        return tail;
+    }
+
+    public void setTail(NodoCliente tail) {
+        this.tail = tail;
     }
 
     public int getPosition() {
-        return this.position;
+        return position;
     }
 
-    public void goToStart(){
-        this.current = this.head;
-        this.position = -1;
+    public void setPosition(int position) {
+        this.position = position;
     }
 
-    public void goToEnd(){
-        this.current = this.tail;
-        this.position = this.size - 1;
+    public int getSize() {
+        return size;
     }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public NodoCliente getNext() {
+        return next;
+    }
+
+    public void setNext(NodoCliente next) {
+        this.next = next;
+    }
+    
     //En el siguiente metodo, se usa una posicion especifica para obtener un elemento de la lista
-    public Libreria goToPos(int pos) {
+    public Cliente goToPos(int pos) {
         if (pos < 0 || pos >= this.size) {
             System.out.println("Posición inválida");
             return null;
@@ -157,20 +160,20 @@ public class ListaLibrerias {
             current = current.getNext();
             temp++;
         }
-        return current.getLibreria();
+        return current.getCliente();
     }
     //Metodo para validar la entrada de nuevas librerias
-    public boolean verificar(String pNombre){
+    public boolean verificar(String pCedula){
         String verificador;
         //Se busca que ya no haya otra libreria registrada con ese nombre
         for (int pos = 0; pos < size; pos++){
-            Libreria temporal = goToPos(pos);
+            Cliente temporal = goToPos(pos);
             if (temporal == null){
                 return false;
             }
             else{
-                verificador = temporal.getNombre();
-                if (verificador.equals(pNombre)){
+                verificador = temporal.getCedula();
+                if (verificador.equals(pCedula)){
                     return false;
                 }
             }

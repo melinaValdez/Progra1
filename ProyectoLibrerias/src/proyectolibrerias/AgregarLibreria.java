@@ -131,12 +131,12 @@ public class AgregarLibreria extends javax.swing.JFrame {
 
         btnAceptar.setText("Aceptar");
         btnAceptar.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 btnAceptarAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +150,7 @@ public class AgregarLibreria extends javax.swing.JFrame {
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pantalla Principal background.jpg"))); // NOI18N
         lblBackground.setText("jLabel1");
         getContentPane().add(lblBackground);
-        lblBackground.setBounds(0, -10, 830, 610);
+        lblBackground.setBounds(-40, -10, 830, 610);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -186,7 +186,7 @@ public class AgregarLibreria extends javax.swing.JFrame {
             ListaLibrerias listaLibs = ListaLibrerias.getInstance();
             boolean insertar = listaLibs.insert(nuevaLibreria);
             if(insertar){
-                JOptionPane.showMessageDialog(panel, "La libreria se insertó correctamente.", "Lista agregada", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(panel, "La libreria se añadió correctamente.", "Lista agregada", JOptionPane.INFORMATION_MESSAGE);
                 txtNombre.setText("");
                 txtPais.setText("");
                 txtHorario.setText("");

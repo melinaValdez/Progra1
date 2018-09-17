@@ -24,6 +24,7 @@ public ListaLibros(){
 
 public void insert(Libro pLibro) {
     //Insertar en cualquier posición
+    System.out.println(pLibro.getNombre());
     NodoLibro newNode = new NodoLibro(pLibro, this.current, this.current.getNext());
     if (this.current != this.tail)
         this.current.getNext().setPrevious(newNode);
@@ -99,4 +100,18 @@ public void remove(){
     public void goToEnd(){
         this.current = this.tail;
     }
+    public Libro goToPos(int pos) {
+        if (pos < 0 || pos >= this.size) {
+            System.out.println("Posición inválida");
+            return null;
+        }
+        int temp = 0;
+        current = head.getNext();
+        while (temp != pos){
+            current = current.getNext();
+            temp++;
+        }
+        return current.getDato();
+    }
+    //Metodo para validar la entrada de nuevas librerias
 }

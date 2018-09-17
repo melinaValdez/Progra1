@@ -35,6 +35,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         btnAgregarLibro = new javax.swing.JButton();
         btnAgregarLibreria = new javax.swing.JButton();
+        btnModificarLibro = new javax.swing.JButton();
+        btnRegistrarse = new javax.swing.JButton();
         lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,7 +72,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnBuscar);
-        btnBuscar.setBounds(536, 130, 137, 56);
+        btnBuscar.setBounds(550, 130, 137, 56);
 
         btnAgregarLibro.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         btnAgregarLibro.setText("Agregar libro");
@@ -94,7 +96,30 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAgregarLibreria);
-        btnAgregarLibreria.setBounds(70, 220, 137, 56);
+        btnAgregarLibreria.setBounds(70, 230, 137, 56);
+
+        btnModificarLibro.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnModificarLibro.setText("Modificar libro");
+        btnModificarLibro.setToolTipText("");
+        btnModificarLibro.setName("btnBuscar"); // NOI18N
+        btnModificarLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarLibroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnModificarLibro);
+        btnModificarLibro.setBounds(70, 330, 137, 56);
+
+        btnRegistrarse.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.setName("btnBuscar"); // NOI18N
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarseActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRegistrarse);
+        btnRegistrarse.setBounds(550, 230, 137, 56);
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pantalla Principal background.jpg"))); // NOI18N
         getContentPane().add(lblBackground);
@@ -122,6 +147,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         vAgregarLibreria.setSize(815, 607);
         vAgregarLibreria.setVisible(true);
     }//GEN-LAST:event_btnAgregarLibreriaActionPerformed
+
+    private void btnModificarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarLibroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificarLibroActionPerformed
+
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,6 +195,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarLibreria;
     private javax.swing.JButton btnAgregarLibro;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnModificarLibro;
+    private javax.swing.JButton btnRegistrarse;
     private javax.swing.JLabel lblAdministrador;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblBienvenido;
