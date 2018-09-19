@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 package proyectolibrerias;
-
-import javax.swing.JFrame;
-
 /**
  *
  * @author Melina
@@ -18,6 +15,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
      */
     public PantallaPrincipal() {
         initComponents();
+        setSize(815, 607);
     }
 
     /**
@@ -121,7 +119,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         getContentPane().add(btnRegistrarse);
         btnRegistrarse.setBounds(550, 230, 137, 56);
 
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pantalla Principal background.jpg"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/background.jpg"))); // NOI18N
         getContentPane().add(lblBackground);
         lblBackground.setBounds(-10, -20, 810, 630);
 
@@ -136,24 +134,22 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void btnAgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibroActionPerformed
         // TODO add your handling code here:
-        AgregarLibro vAgregarLibro = new AgregarLibro();
-        vAgregarLibro.setSize(815, 607);
-        vAgregarLibro.setVisible(true);
+        new AgregarLibro().setVisible(true);
     }//GEN-LAST:event_btnAgregarLibroActionPerformed
 
     private void btnAgregarLibreriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibreriaActionPerformed
         // TODO add your handling code here:
-        AgregarLibreria vAgregarLibreria = new AgregarLibreria();
-        vAgregarLibreria.setSize(815, 607);
-        vAgregarLibreria.setVisible(true);
+        new AgregarLibreria().setVisible(true);
     }//GEN-LAST:event_btnAgregarLibreriaActionPerformed
 
     private void btnModificarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarLibroActionPerformed
         // TODO add your handling code here:
+        new ModificarLibro().setVisible(true);
     }//GEN-LAST:event_btnModificarLibroActionPerformed
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         // TODO add your handling code here:
+        new Registro().setVisible(true);
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     /**

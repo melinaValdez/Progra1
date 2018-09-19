@@ -27,6 +27,7 @@ public class AgregarLibro extends javax.swing.JFrame {
         cbTema.addItem("MATEMATICA");
         cbTema.addItem("LITERATURA");
         setLibraries();
+        setSize(815, 607);
         
     }
 
@@ -73,7 +74,7 @@ public class AgregarLibro extends javax.swing.JFrame {
         lblDatos.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
         lblDatos.setText("Datos del libro");
         getContentPane().add(lblDatos);
-        lblDatos.setBounds(260, 20, 228, 48);
+        lblDatos.setBounds(270, 20, 228, 48);
 
         lblNombre.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblNombre.setText("Nombre:");
@@ -118,7 +119,7 @@ public class AgregarLibro extends javax.swing.JFrame {
         getContentPane().add(cbTema);
         cbTema.setBounds(140, 220, 160, 27);
         getContentPane().add(spCantidad);
-        spCantidad.setBounds(520, 150, 70, 20);
+        spCantidad.setBounds(520, 150, 70, 22);
 
         spPrecio.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
         getContentPane().add(spPrecio);
@@ -164,7 +165,7 @@ public class AgregarLibro extends javax.swing.JFrame {
         getContentPane().add(cbLibreria);
         cbLibreria.setBounds(510, 210, 160, 27);
 
-        lblAgregarLibroBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pantalla Principal background.jpg"))); // NOI18N
+        lblAgregarLibroBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/background.jpg"))); // NOI18N
         lblAgregarLibroBackground.setText("jLabel1");
         getContentPane().add(lblAgregarLibroBackground);
         lblAgregarLibroBackground.setBounds(0, 0, 840, 590);
@@ -175,14 +176,14 @@ public class AgregarLibro extends javax.swing.JFrame {
     private void setLibraries(){
         cbLibreria.removeAllItems();
         JPanel panel = new JPanel();
-        ListaLibrerias listaLibs = ListaLibrerias.getInstance();
+        ListaSimple listaLibs = ListaSimple.getLibrariesInstance();
         if (listaLibs.getSize() == 0){
             JOptionPane.showMessageDialog(panel, "Actualmente no hay librerías disponibles.", "Error", JOptionPane.ERROR_MESSAGE);
         }
         else{
             int indice = 0;
             while (indice < listaLibs.getSize()){
-                Libreria temporal = listaLibs.goToPos(indice);
+                Libreria temporal = (Libreria)listaLibs.goToPos(indice);
                 cbLibreria.addItem(temporal.getNombre());
                 indice++;
             }
@@ -203,7 +204,6 @@ public class AgregarLibro extends javax.swing.JFrame {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
         JPanel panel = new JPanel();
-        boolean valido = false;
         if (txtNombre.getText().isEmpty()){
             JOptionPane.showMessageDialog(panel, "Por favor, indique el nombre del libro.", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -218,11 +218,12 @@ public class AgregarLibro extends javax.swing.JFrame {
             int cantidad = Integer.parseInt(spCantidad.getValue().toString());
             Libro nuevoLibro = new Libro(txtNombre.getText(),precio,cantidad,cbTema.getSelectedItem().toString());
             nuevoLibro.setDescripcion(txtDescripcion.getText());
-            ListaLibrerias listaLibs =  ListaLibrerias.getInstance();
-            String nombreLib = cbLibreria.getSelectedItem().toString().toUpperCase();
+            ListaSimple listaLibs =  ListaSimple.getLibrariesInstance();
+            String nombreLib = cbLibreria.getSelectedItem().toString();
+            System.out.println("Nombre libreria: " + nombreLib);
             int indice = 0;
             while (indice < listaLibs.getSize()){
-                Libreria temporal = listaLibs.goToPos(indice);
+                Libreria temporal = (Libreria)listaLibs.goToPos(indice);
                 System.out.println("Nombre temporal: " + temporal.getNombre());
                 if (temporal.getNombre().equals(nombreLib)){
                     temporal.getListaLibros().append(nuevoLibro);

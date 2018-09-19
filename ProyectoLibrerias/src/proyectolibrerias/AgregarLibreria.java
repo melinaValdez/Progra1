@@ -18,6 +18,7 @@ public class AgregarLibreria extends javax.swing.JFrame {
      */
     public AgregarLibreria() {
         initComponents();
+        setSize(815, 607);
     }
 
     /**
@@ -131,12 +132,12 @@ public class AgregarLibreria extends javax.swing.JFrame {
 
         btnAceptar.setText("Aceptar");
         btnAceptar.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 btnAceptarAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -147,14 +148,30 @@ public class AgregarLibreria extends javax.swing.JFrame {
         getContentPane().add(btnAceptar);
         btnAceptar.setBounds(320, 460, 99, 58);
 
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pantalla Principal background.jpg"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/background.jpg"))); // NOI18N
         lblBackground.setText("jLabel1");
         getContentPane().add(lblBackground);
         lblBackground.setBounds(-40, -10, 830, 610);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public boolean verificar(String pNombre, ListaSimple listaLibs){
+        String verificador;
+        //Se busca que ya no haya otra libreria registrada con ese nombre
+        for (int pos = 0; pos < listaLibs.getSize(); pos++){
+            Libreria temporal = (Libreria)listaLibs.goToPos(pos);
+            if (temporal == null){
+                return false;
+            }
+            else{
+                verificador = temporal.getNombre();
+                if (verificador.equals(pNombre)){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
@@ -183,10 +200,11 @@ public class AgregarLibreria extends javax.swing.JFrame {
         }
         else{
             Libreria nuevaLibreria = new Libreria(txtNombre.getText(),txtPais.getText(),txtTelefono.getText(),txtHorario.getText());
-            ListaLibrerias listaLibs = ListaLibrerias.getInstance();
-            boolean insertar = listaLibs.insert(nuevaLibreria);
-            if(insertar){
-                JOptionPane.showMessageDialog(panel, "La libreria se añadió correctamente.", "Lista agregada", JOptionPane.INFORMATION_MESSAGE);
+            ListaSimple listaLibs = ListaSimple.getLibrariesInstance();
+            boolean validacion = verificar(nuevaLibreria.getNombre(),listaLibs);
+            if(validacion){
+                listaLibs.append(nuevaLibreria);
+                JOptionPane.showMessageDialog(panel, "La libreria se añadió correctamente.", "Libreria agregada", JOptionPane.INFORMATION_MESSAGE);
                 txtNombre.setText("");
                 txtPais.setText("");
                 txtHorario.setText("");

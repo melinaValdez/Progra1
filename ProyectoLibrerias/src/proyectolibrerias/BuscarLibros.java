@@ -54,8 +54,6 @@ public class BuscarLibros extends javax.swing.JFrame {
         txtMinimo = new javax.swing.JTextField();
         txtMaximo = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
         jLabel1.setText("Buscar Libros");
 
@@ -180,7 +178,7 @@ public class BuscarLibros extends javax.swing.JFrame {
         // Validar si la entrada esta vacia
         JPanel panel = new JPanel();
         Libro libro = new Libro();
-        ListaLibrerias listaLibrerias = new ListaLibrerias();
+        ListaSimple listaLibrerias = new ListaSimple();
         Libreria libreria = new Libreria();
         if(!comboLibrerias.getSelectedItem().toString().equals("Buscar Libreria")){
             String libreriaBuscada = comboLibrerias.getSelectedItem().toString();
@@ -220,14 +218,14 @@ public class BuscarLibros extends javax.swing.JFrame {
         comboLibrerias.removeAllItems();
         comboLibrerias.addItem("Buscar Libreria");
         JPanel panel = new JPanel();
-        ListaLibrerias listaLibs = ListaLibrerias.getInstance();
+        ListaSimple listaLibs = ListaSimple.getLibrariesInstance();
         if (listaLibs.getSize() == 0){
             JOptionPane.showMessageDialog(panel, "Actualmente no hay librerías disponibles.", "Error", JOptionPane.ERROR_MESSAGE);
         }
         else{
             int indice = 0;
             while (indice < listaLibs.getSize()){
-                Libreria temporal = listaLibs.goToPos(indice);
+                Libreria temporal = (Libreria)listaLibs.goToPos(indice);
                 comboLibrerias.addItem(temporal.getNombre().toUpperCase());
                 indice++;
             }

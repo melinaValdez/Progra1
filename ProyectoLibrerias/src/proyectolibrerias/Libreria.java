@@ -15,25 +15,23 @@ public class Libreria {
     private String ubicacion;
     private String telefono;
     private String horario;
-    private ListaLibros listaLibros;
+    private ListaDoble listaLibros;
 
     //Constructores
     public Libreria(String pNombre){
-        nombre = pNombre;
-        listaLibros = new ListaLibros();
+        nombre = pNombre.toUpperCase();
+        listaLibros = new ListaDoble();
     }
 
     public Libreria() {
     }
-
-
-
+    
     public Libreria(String pNombre, String pPais, String pTelefono, String pHorario){
         nombre = pNombre.toUpperCase();
         pais = pPais.toUpperCase();
         telefono = pTelefono.toUpperCase();
         horario = pHorario.toUpperCase();
-        listaLibros = new ListaLibros();
+        listaLibros = new ListaDoble();
     }
 
     //Getters y Setters
@@ -78,11 +76,11 @@ public class Libreria {
         this.horario = horario;
     }
 
-    public ListaLibros getListaLibros() {
+    public ListaDoble getListaLibros() {
         return listaLibros;
     }
 
-    public void setListaLibros(ListaLibros listaLibros) {
+    public void setListaLibros(ListaDoble listaLibros) {
         this.listaLibros = listaLibros;
     }
 }

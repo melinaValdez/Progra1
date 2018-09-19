@@ -9,61 +9,64 @@ package proyectolibrerias;
  *
  * @author Melina
  */
-public class ListaLibrerias {
-     //atributos LinkedList
-    private NodoLibreria head;
-    private NodoLibreria current;
-    private NodoLibreria tail;
+public class ListaSimple {
+    //atributos LinkedList
+    private NodoSimple head;
+    private NodoSimple current;
+    private NodoSimple tail;
     private int position;
     private int size;
-    private static ListaLibrerias instance = null;
-    
+    private static ListaSimple instanciaLibrerias = null;
+    private static ListaSimple instanciaClientes = null;
+
     //constructores LinkedList
 
     /**
      * Contructor predeterminado
      */
-    protected ListaLibrerias() {
-        this.head = new NodoLibreria();
+    public ListaSimple() {
+        this.head = new NodoSimple();
         this.current = this.head;
         this.tail = this.head;
         this.size = 0;
         this.position = -1;
     }
-    //Metodo de patron singleton utilizado para mantener una sola lista de librerias en todo el programa
-    public static ListaLibrerias getInstance() {
-       if(instance == null) {
-          instance = new ListaLibrerias();
+
+    //Metodos de patron singleton utilizado para mantener una sola lista de librerias y clientes en todo el programa
+    public static ListaSimple getLibrariesInstance() {
+       if(instanciaLibrerias == null) {
+          instanciaLibrerias = new ListaSimple();
        }
-       return instance;
+       return instanciaLibrerias;
     }
-    
-    public boolean insert(Libreria pLibreria) {
+    public static ListaSimple getClientsInstance() {
+       if(instanciaClientes == null) {
+          instanciaClientes = new ListaSimple();
+       }
+       return instanciaClientes;
+    }
+    /**
+     * Agrega un nuevo elemento a la lista
+     * @param element El elemento a agregar
+     */
+    public void insert(Object element) {
         //insertar en cualquier posición
-        boolean verificar = verificar(pLibreria.getNombre());
-        if (verificar){
-            NodoLibreria newNode = new NodoLibreria(pLibreria, this.current.getNext());
-            this.current.setNext(newNode);
-            //necesario si se está insertando al final de la lista
-            if (this.current == this.tail) {
-                this.tail = tail.getNext();
-            }
-            this.size++;
+        NodoSimple newNode = new NodoSimple(element, this.current.getNext());
+        this.current.setNext(newNode);
+        //necesario si se está insertando al final de la lista
+        if (this.current == this.tail) {
+            this.tail = tail.getNext();
         }
-        return verificar;
+        this.size++;
 
     }
 
-    public boolean append(Libreria pLibreria) {
-        //Siempre se pega al final de la lista
-        boolean verificar = verificar(pLibreria.getNombre());
-        if (verificar){
-            NodoLibreria newNode = new NodoLibreria(pLibreria);
-            this.tail.setNext(newNode);
-            this.tail = newNode;
-            this.size++;
-        }
-        return verificar;
+    public void append(Object element) {
+        //siempre se pega al final de la lista
+        NodoSimple newNode = new NodoSimple(element);
+        this.tail.setNext(newNode);
+        this.tail = newNode;
+        this.size++;
     }
 
     public void remove() {
@@ -74,7 +77,7 @@ public class ListaLibrerias {
         } //también if (this.size == 0) ...
 
         //en temp se va a almacenar el nodo ANTERIOR al que se quiere borrar
-        NodoLibreria temp = head;
+        NodoSimple temp = head;
         while (temp.getNext() != this.current) {
             temp = temp.getNext();
         }
@@ -94,13 +97,13 @@ public class ListaLibrerias {
     }
 
     public void clear() {
-        this.head = this.tail = this.current = new NodoLibreria();
+        this.head = this.tail = this.current = new NodoSimple();
         this.position = -1;
         this.size = 0;
     }
 
-    public Libreria getLibreria(){
-        return this.current.getLibreria();
+    public Object getElement(){
+        return this.current.getElement();
     }
 
     public int getSize() {
@@ -122,7 +125,7 @@ public class ListaLibrerias {
             System.out.println("Actualmente en primer nodo, no se puede retroceder");
             return false;
         }
-        NodoLibreria temp = head;
+        NodoSimple temp = head;
         this.position = -1;
         while (temp.getNext() != this.current) {
             temp = temp.getNext();
@@ -145,8 +148,9 @@ public class ListaLibrerias {
         this.current = this.tail;
         this.position = this.size - 1;
     }
+
     //En el siguiente metodo, se usa una posicion especifica para obtener un elemento de la lista
-    public Libreria goToPos(int pos) {
+    public Object goToPos(int pos) {
         if (pos < 0 || pos >= this.size) {
             System.out.println("Posición inválida");
             return null;
@@ -157,24 +161,24 @@ public class ListaLibrerias {
             current = current.getNext();
             temp++;
         }
-        return current.getLibreria();
+        return current.getElement();
     }
     //Metodo para validar la entrada de nuevas librerias
-    public boolean verificar(String pNombre){
-        String verificador;
+    /*public boolean verificar(String pNombre){
+        Object verificador;
         //Se busca que ya no haya otra libreria registrada con ese nombre
         for (int pos = 0; pos < size; pos++){
-            Libreria temporal = goToPos(pos);
+            Object temporal = goToPos(pos);
             if (temporal == null){
                 return false;
             }
             else{
-                verificador = temporal.getNombre();
+                verificador = (Libreria)temporal;
                 if (verificador.equals(pNombre)){
                     return false;
                 }
             }
         }
         return true;
-    }
+    }*/
 }

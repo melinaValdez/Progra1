@@ -32,9 +32,6 @@ public class Libro {
     public Libro() {
     }
     
-    
-    
-    
     //Getters y setters
     public int getIssn() {
         return issn;

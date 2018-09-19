@@ -19,6 +19,7 @@ public class Registro extends javax.swing.JFrame {
      */
     public Registro() {
         initComponents();
+        setSize(778,586);
     }
 
     /**
@@ -45,13 +46,12 @@ public class Registro extends javax.swing.JFrame {
         btnAceptar = new javax.swing.JButton();
         lblBackground = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         lblRegistro.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
         lblRegistro.setText("Registro");
         getContentPane().add(lblRegistro);
-        lblRegistro.setBounds(310, 20, 128, 48);
+        lblRegistro.setBounds(320, 20, 128, 48);
 
         lblNombre.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblNombre.setText("Nombre:");
@@ -84,7 +84,7 @@ public class Registro extends javax.swing.JFrame {
         lblCorreo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblCorreo.setText("Correo electrónico:");
         getContentPane().add(lblCorreo);
-        lblCorreo.setBounds(50, 390, 159, 27);
+        lblCorreo.setBounds(50, 400, 159, 27);
 
         txtTelefono.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +93,7 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtTelefono);
-        txtTelefono.setBounds(220, 340, 360, 29);
+        txtTelefono.setBounds(220, 350, 360, 29);
 
         txtCorreo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +102,7 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtCorreo);
-        txtCorreo.setBounds(220, 390, 360, 29);
+        txtCorreo.setBounds(220, 400, 360, 29);
 
         lblDireccion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblDireccion.setText("Dirección:");
@@ -112,14 +112,15 @@ public class Registro extends javax.swing.JFrame {
         lblTelefono.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblTelefono.setText("Teléfono:");
         getContentPane().add(lblTelefono);
-        lblTelefono.setBounds(130, 340, 77, 27);
+        lblTelefono.setBounds(120, 350, 77, 27);
 
         txtDireccion.setColumns(20);
+        txtDireccion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         txtDireccion.setRows(5);
         jScrollPane1.setViewportView(txtDireccion);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(220, 220, 360, 96);
+        jScrollPane1.setBounds(220, 220, 360, 106);
 
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -128,16 +129,32 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAceptar);
-        btnAceptar.setBounds(320, 450, 107, 59);
+        btnAceptar.setBounds(320, 460, 107, 59);
 
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pantalla Principal background.jpg"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/background.jpg"))); // NOI18N
         lblBackground.setText("jLabel1");
         getContentPane().add(lblBackground);
-        lblBackground.setBounds(-20, 0, 900, 810);
+        lblBackground.setBounds(-20, 0, 900, 870);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public boolean verificar(String pCedula, ListaSimple listaClientes){
+        String verificador;
+        //Se busca que ya no haya otra libreria registrada con ese nombre
+        for (int pos = 0; pos < listaClientes.getSize(); pos++){
+            Cliente temporal = (Cliente)listaClientes.goToPos(pos);
+            if (temporal == null){
+                return false;
+            }
+            else{
+                verificador = temporal.getCedula();
+                if (verificador.equals(pCedula)){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedulaActionPerformed
@@ -165,8 +182,20 @@ public class Registro extends javax.swing.JFrame {
         }
         else{
             Cliente nuevoCliente = new Cliente(txtCedula.getText(),txtNombre.getText(),txtDireccion.getText(),txtTelefono.getText(),txtCorreo.getText());
-            ListaClientes listaC = ListaClientes.getInstance();
-            boolean verificacion = listaC.append(nuevoCliente);
+            ListaSimple listaClientes = ListaSimple.getClientsInstance();
+            boolean verificacion = verificar(nuevoCliente.cedula,listaClientes);
+            if (verificacion){
+                listaClientes.append(nuevoCliente);
+                JOptionPane.showMessageDialog(panel, "Usted se ha registrado correctamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
+                txtNombre.setText("");
+                txtCedula.setText("");
+                txtDireccion.setText("");
+                txtCorreo.setText("");
+                txtTelefono.setText("");
+            }
+            else{
+                JOptionPane.showMessageDialog(panel, "Ya existe un cliente con este número de cúdula.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
