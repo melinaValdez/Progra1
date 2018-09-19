@@ -16,7 +16,7 @@ public class Libreria {
     private String telefono;
     private String horario;
     private ListaLibros listaLibros;
- 
+
     //Constructores
     public Libreria(String pNombre){
         nombre = pNombre;
@@ -25,9 +25,9 @@ public class Libreria {
 
     public Libreria() {
     }
-    
-    
-    
+
+
+
     public Libreria(String pNombre, String pPais, String pTelefono, String pHorario){
         nombre = pNombre.toUpperCase();
         pais = pPais.toUpperCase();
@@ -35,7 +35,7 @@ public class Libreria {
         horario = pHorario.toUpperCase();
         listaLibros = new ListaLibros();
     }
-    
+
     //Getters y Setters
 
     public String getNombre() {
