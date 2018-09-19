@@ -5,8 +5,10 @@
         <group>
             <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/ListaLibros.java</file>
             <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/ColaPedidos.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/NodoCliente.java</file>
             <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/Cliente.java</file>
             <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/NodoLibro.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/ListaClientes.java</file>
             <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/AgregarLibreria.java</file>
             <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/ColaException.java</file>
             <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/ProyectoLibrerias.java</file>
@@ -15,9 +17,11 @@
             <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/Libro.java</file>
             <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/ListaLibrerias.java</file>
             <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/PilaLibros.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/Registro.java</file>
             <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/NodoLibreria.java</file>
             <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/Libreria.java</file>
             <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/PantallaPrincipal.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/traducir.java</file>
             <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/NodoLibrosVistos.java</file>
         </group>
     </open-files>

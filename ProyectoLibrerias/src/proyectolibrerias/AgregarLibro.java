@@ -118,7 +118,7 @@ public class AgregarLibro extends javax.swing.JFrame {
         getContentPane().add(cbTema);
         cbTema.setBounds(140, 220, 160, 27);
         getContentPane().add(spCantidad);
-        spCantidad.setBounds(520, 150, 70, 22);
+        spCantidad.setBounds(520, 150, 70, 20);
 
         spPrecio.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
         getContentPane().add(spPrecio);
