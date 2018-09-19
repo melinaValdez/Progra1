@@ -204,14 +204,8 @@ public class AgregarLibro extends javax.swing.JFrame {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
         JPanel panel = new JPanel();
-        if (txtNombre.getText().isEmpty()){
-            JOptionPane.showMessageDialog(panel, "Por favor, indique el nombre del libro.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        else if (spPrecio.getValue().equals(0)){
-            JOptionPane.showMessageDialog(panel, "Por favor, indique el precio del libro.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        else if (txtDescripcion.getText().isEmpty()){
-            JOptionPane.showMessageDialog(panel, "Por favor, agregue la descripción del libro.", "Error", JOptionPane.ERROR_MESSAGE);
+        if (txtNombre.getText().isEmpty()|spPrecio.getValue().equals(0)|txtDescripcion.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Por favor llene los espacios en blanco");
         }
         else{
             int precio = Integer.parseInt(spPrecio.getValue().toString());

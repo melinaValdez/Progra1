@@ -80,7 +80,7 @@ public class AgregarLibreria extends javax.swing.JFrame {
         lblUbicacion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblUbicacion.setText("Ubicación detallada:");
         getContentPane().add(lblUbicacion);
-        lblUbicacion.setBounds(20, 300, 167, 27);
+        lblUbicacion.setBounds(20, 310, 167, 27);
 
         txtNombre.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         txtNombre.setToolTipText("");
@@ -110,7 +110,7 @@ public class AgregarLibreria extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtTelefono);
-        txtTelefono.setBounds(110, 220, 236, 26);
+        txtTelefono.setBounds(470, 220, 236, 26);
 
         txtHorario.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         txtHorario.setToolTipText("");
@@ -120,7 +120,7 @@ public class AgregarLibreria extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtHorario);
-        txtHorario.setBounds(470, 220, 236, 26);
+        txtHorario.setBounds(110, 220, 236, 26);
 
         txtUbicacion.setColumns(20);
         txtUbicacion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
@@ -195,8 +195,8 @@ public class AgregarLibreria extends javax.swing.JFrame {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
         JPanel panel = new JPanel();
-        if (txtNombre.getText().isEmpty()){
-            JOptionPane.showMessageDialog(panel, "Por favor, indique el nombre de la librería.", "Error", JOptionPane.ERROR_MESSAGE);
+        if (txtNombre.getText().isEmpty()|txtHorario.getText().isEmpty()|txtPais.getText().isEmpty()|txtTelefono.getText().isEmpty()|txtUbicacion.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Llene todos los espacios en blanco");
         }
         else{
             Libreria nuevaLibreria = new Libreria(txtNombre.getText(),txtPais.getText(),txtTelefono.getText(),txtHorario.getText());
