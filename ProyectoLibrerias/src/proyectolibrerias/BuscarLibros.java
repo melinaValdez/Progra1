@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class BuscarLibros extends javax.swing.JFrame {
 
-    private int i = 0;
+    //private int i = 0;
 
     public BuscarLibros() {
         initComponents();
@@ -154,7 +154,7 @@ public class BuscarLibros extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tablaResultados);
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(230, 200, 510, 320);
+        jScrollPane1.setBounds(200, 200, 540, 320);
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/background.jpg"))); // NOI18N
         jPanel2.add(lblFondo);
@@ -203,13 +203,54 @@ public class BuscarLibros extends javax.swing.JFrame {
                             System.out.println(libroVisto);
                             System.out.println("temporal libro" + temporalLb.toString());
                             meter(temporalLb);
-                            this.i++;
+                            //this.i++;
                         }
                     }
                 }
             }
+            else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
+            
+        } else if(libroBuscado.getText().isEmpty() && txtMinimo.getText().isEmpty() && txtMaximo.getText().isEmpty() && temaElegido.equals("Buscar tema")){
+            if(!libreriaElegida.equals("Buscar Libreria")){
+                for (int i = 0; i <= listaLibs.getSize() - 1; i++) {//For que recorre cada nodo de la lista de librerias
+                    Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                    String libreria = temporal.getNombre();
+                    if(libreria.equals(libreriaElegida)){//Compara si el nombre de la libreria es el mismo de la deseada
+                        for(int k=0; k <= temporal.getListaLibros().getSize()-1; k++){//For que recorre los nodos de la lista libros
+                            Libro temporalLb =(Libro) temporal.getListaLibros().goToPos(k);//Selecciona a un nodo segun el numero del contador
+                            meter(temporalLb);
+                        }
+                    }
+                } 
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
+        }else if(libroBuscado.getText().isEmpty() && txtMinimo.getText().isEmpty() && txtMaximo.getText().isEmpty() && libreriaElegida.equals("Buscar Libreria")){
+            if(!temaElegido.equals("Buscar tema")){
+                 for (int i = 0; i <= listaLibs.getSize() - 1; i++) {
+                    Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                    int contadorListaLb = temporal.getListaLibros().getSize();
+                    for (int k = 0; k <= temporal.getListaLibros().getSize() - 1; k++) {
+                        Libro temporalLb = (Libro) temporal.getListaLibros().goToPos(k);
+                        String libroVisto = temporalLb.getTema();
+                        if (libroVisto.equalsIgnoreCase(temaElegido)) {
+                            System.out.println(libroVisto);
+                            System.out.println("temporal libro" + temporalLb.toString());
+                            meter(temporalLb);
+                            //this.i++;
+                        }
+                    }
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
             
         }
+        
 
 
     }//GEN-LAST:event_buscarLibroActionPerformed
