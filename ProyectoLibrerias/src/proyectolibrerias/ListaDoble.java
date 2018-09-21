@@ -12,6 +12,7 @@ public class ListaDoble {
     private int position;
     private int size;
 
+
     public ListaDoble(){
         this.head = new NodoDoble();
         this.current = this.head;
@@ -19,6 +20,8 @@ public class ListaDoble {
         this.size = 0;
         this.position = -1;
     }
+
+
     /**
      * Agrega un nuevo elemento a la lista
      * @param element
@@ -91,6 +94,8 @@ public class ListaDoble {
         return true;
     }
 
+
+
     public boolean previous() {
         if (this.current == this.head) {
             System.out.println("Actualmente en primer nodo, no se puede retroceder");
@@ -100,7 +105,7 @@ public class ListaDoble {
         this.position--;
         return true;
     }
-    
+
     public Object goToPos(int pos) {
         if (pos < 0 || pos >= this.size) {
             System.out.println("Posición inválida");

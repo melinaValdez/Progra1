@@ -84,5 +84,11 @@ public class Libro {
     public void setTema(String tema) {
         this.tema = tema;
     }
+
+    @Override
+    public String toString() {
+        return "Libro{" + "issn=" + issn + ", nombre=" + nombre + ", descripcion=" + descripcion + ", cantVendida=" + cantVendida + ", cantDisponible=" + cantDisponible + ", precio=" + precio + ", tema=" + tema + '}';
+    }
+    
     
 }
