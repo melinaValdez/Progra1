@@ -14,7 +14,8 @@ import javax.swing.table.DefaultTableModel;
  * @author Melina
  */
 public class ModificarLibro extends javax.swing.JFrame {
-
+        ListaSimple listaLibs = ListaSimple.getLibrariesInstance();
+        JPanel panel = new JPanel();
     /**
      * Creates new form ModificarLibro
      */
@@ -60,7 +61,7 @@ public class ModificarLibro extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -157,7 +158,6 @@ public class ModificarLibro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void setTable(String pNombre){
-        JPanel panel = new JPanel();
         DefaultTableModel model = new DefaultTableModel();
         tblLibros.setModel(model);
         model.addColumn("Libreria");
@@ -172,7 +172,6 @@ public class ModificarLibro extends javax.swing.JFrame {
         tblLibros.getColumnModel().getColumn(3).setPreferredWidth(40);
         tblLibros.getColumnModel().getColumn(6).setPreferredWidth(30);
         tblLibros.getColumnModel().getColumn(5).setPreferredWidth(40);
-        ListaSimple listaLibs = ListaSimple.getLibrariesInstance();
         for (int index = 0; index < listaLibs.getSize(); index++){
             Libreria libreria = (Libreria)listaLibs.goToPos(index);
             if (pNombre.equals(libreria.getNombre())){
@@ -186,8 +185,6 @@ public class ModificarLibro extends javax.swing.JFrame {
     }
     private void setLibraries(){
         cbLibreria.removeAllItems();
-        JPanel panel = new JPanel();
-        ListaSimple listaLibs = ListaSimple.getLibrariesInstance();
         if (listaLibs.getSize() == 0){
             JOptionPane.showMessageDialog(panel, "Actualmente no hay librerías disponibles.", "Error", JOptionPane.ERROR_MESSAGE);
             hide();
@@ -204,19 +201,20 @@ public class ModificarLibro extends javax.swing.JFrame {
     }
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
-        
+        Libro book = (Libro)listaLibs.buscarPersonalizado(cbLibreria.getSelectedItem().toString(), Integer.parseInt(spIssn.getValue().toString()));
+        new DatosLibro(book).setVisible(true);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        ListaSimple listaLibs = ListaSimple.getLibrariesInstance();
-        for (int index = 0; index < listaLibs.getSize(); index++){
-            Libreria libreria = (Libreria)listaLibs.goToPos(index);
-            for (int cont = 0; cont < libreria.getListaLibros().getSize(); cont++){
-                Libro libro = (Libro)libreria.getListaLibros().goToPos(cont);
-            }
-            break;
-    }
+        boolean validar = (boolean)listaLibs.eliminarPersonalizado(cbLibreria.getSelectedItem().toString(), Integer.parseInt(spIssn.getValue().toString()));
+        if (validar){
+            JOptionPane.showMessageDialog(panel, "El libro se ha eliminado correctamente.", "Libro eliminado", JOptionPane.INFORMATION_MESSAGE);
+            setTable(cbLibreria.getSelectedItem().toString());
+        }
+        else{
+            JOptionPane.showMessageDialog(panel, "Issn no existe.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void cbLibreriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLibreriaActionPerformed

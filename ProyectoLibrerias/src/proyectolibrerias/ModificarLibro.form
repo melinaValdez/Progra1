@@ -42,8 +42,8 @@
                 <Column editable="false" title="Issn" type="java.lang.Object"/>
                 <Column editable="false" title="Nombre" type="java.lang.Object"/>
                 <Column editable="false" title="Precio" type="java.lang.Object"/>
-                <Column editable="true" title="Tema" type="java.lang.Object"/>
-                <Column editable="true" title="Disponibles" type="java.lang.Object"/>
+                <Column editable="false" title="Tema" type="java.lang.Object"/>
+                <Column editable="false" title="Disponibles" type="java.lang.Object"/>
                 <Column editable="false" title="Vendidas" type="java.lang.Object"/>
               </Table>
             </Property>

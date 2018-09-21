@@ -178,4 +178,20 @@ public class ListaSimple {
         }
         return null;
     }
+    public Object eliminarPersonalizado(String pNombre, int pIssnLibro){
+        Libreria libreria;
+        for (int index = 0; index < instanciaLibrerias.getSize(); index++){
+            libreria = (Libreria)instanciaLibrerias.goToPos(index);
+            if (pNombre.equals(libreria.getNombre())){
+                if(pIssnLibro == -1){
+                    instanciaLibrerias.remove();
+                    return true;
+                }
+                else{
+                    return libreria.getListaLibros().eliminarPorIssn(pIssnLibro, libreria);
+                }
+            }
+        }
+        return false;
+    }
 }

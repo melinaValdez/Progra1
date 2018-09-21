@@ -10,13 +10,16 @@ import javax.swing.JPanel;
  *
  * @author Melina
  */
-public class AgregarLibro extends javax.swing.JFrame {
+public class DatosLibro extends javax.swing.JFrame {
 
+    Libro libroActual;
+    JPanel panel = new JPanel();
     /**
      * Creates new form AgregarLibro
      */
-    public AgregarLibro() {
+    public DatosLibro() {
         initComponents();
+        libroActual = null;
         cbTema.removeAllItems();
         cbTema.addItem("FICCION");
         cbTema.addItem("INGENIERIA");
@@ -30,7 +33,28 @@ public class AgregarLibro extends javax.swing.JFrame {
         setSize(815, 607);
 
     }
+    public DatosLibro(Libro pLibro) {
+        initComponents();
+        libroActual = pLibro;
+        cbTema.removeAllItems();
+        cbTema.addItem("FICCION");
+        cbTema.addItem("INGENIERIA");
+        cbTema.addItem("ADMINISTRACION");
+        cbTema.addItem("CIENCIAS NATURALES");
+        cbTema.addItem("ARTES");
+        cbTema.addItem("HISTORIA");
+        cbTema.addItem("MATEMATICA");
+        cbTema.addItem("LITERATURA");
+        setLibraries();
+        txtNombre.setText(pLibro.getNombre());
+        txtDescripcion.setText(pLibro.getDescripcion());
+        cbTema.setSelectedItem(pLibro.getTema());
+        spPrecio.setValue(pLibro.getPrecio());
+        spCantidad.setValue(pLibro.getCantDisponible());
+        setSize(815, 607);
 
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -175,7 +199,6 @@ public class AgregarLibro extends javax.swing.JFrame {
     //Funcion para agregar al JComboBox las opciones de las librerias disponibles
     private void setLibraries(){
         cbLibreria.removeAllItems();
-        JPanel panel = new JPanel();
         ListaSimple listaLibs = ListaSimple.getLibrariesInstance();
         if (listaLibs.getSize() == 0){
             JOptionPane.showMessageDialog(panel, "Actualmente no hay librerías disponibles.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -204,9 +227,17 @@ public class AgregarLibro extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
-        JPanel panel = new JPanel();
         if (txtNombre.getText().isEmpty()|spPrecio.getValue().equals(0)|txtDescripcion.getText().isEmpty()){
             JOptionPane.showMessageDialog(panel, "Por favor, llene los espacios en blanco.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (libroActual != null){
+            libroActual.setNombre(txtNombre.getText());
+            libroActual.setCantDisponible(Integer.parseInt(spCantidad.getValue().toString()));
+            libroActual.setDescripcion(txtDescripcion.getText());
+            libroActual.setTema(cbTema.getSelectedItem().toString());
+            libroActual.setPrecio(Integer.parseInt(spPrecio.getValue().toString()));
+            JOptionPane.showMessageDialog(panel, "Libro modificado exitosamente.", "Libro modificado", JOptionPane.INFORMATION_MESSAGE);
+            hide();
         }
         else{
             int precio = Integer.parseInt(spPrecio.getValue().toString());
@@ -254,20 +285,21 @@ public class AgregarLibro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AgregarLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AgregarLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AgregarLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AgregarLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AgregarLibro().setVisible(true);
+                new DatosLibro().setVisible(true);
             }
         });
     }

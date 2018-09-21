@@ -122,11 +122,22 @@ public class ListaDoble {
     public Object buscarPorIssn(int pIssn, Libreria pLibreria){
         Libro libro;
         for (int cont = 0; cont < pLibreria.getListaLibros().getSize(); cont++){
-            libro = (Libro)pLibreria.getListaLibros().getElement();
+            libro = (Libro)pLibreria.getListaLibros().goToPos(cont);
             if (libro.getIssn() == pIssn ){
                 return libro;
             }
         }
         return null;
+    }
+    public Object eliminarPorIssn(int pIssn, Libreria pLibreria){
+        Libro libro;
+        for (int cont = 0; cont < pLibreria.getListaLibros().getSize(); cont++){
+            libro = (Libro)pLibreria.getListaLibros().goToPos(cont);
+            if (libro.getIssn() == pIssn ){
+                remove();
+                return true;
+            }
+        }
+        return false;
     }
 }

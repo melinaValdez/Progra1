@@ -134,7 +134,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void btnAgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibroActionPerformed
         // TODO add your handling code here:
-        new AgregarLibro().setVisible(true);
+        new DatosLibro().setVisible(true);
     }//GEN-LAST:event_btnAgregarLibroActionPerformed
 
     private void btnAgregarLibreriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibreriaActionPerformed
