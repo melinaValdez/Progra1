@@ -163,22 +163,19 @@ public class ListaSimple {
         }
         return current.getElement();
     }
-    //Metodo para validar la entrada de nuevas librerias
-    /*public boolean verificar(String pNombre){
-        Object verificador;
-        //Se busca que ya no haya otra libreria registrada con ese nombre
-        for (int pos = 0; pos < size; pos++){
-            Object temporal = goToPos(pos);
-            if (temporal == null){
-                return false;
-            }
-            else{
-                verificador = (Libreria)temporal;
-                if (verificador.equals(pNombre)){
-                    return false;
+    public Object buscarPersonalizado(String pNombre, int pIssnLibro){
+        Libreria libreria;
+        for (int index = 0; index < instanciaLibrerias.getSize(); index++){
+            libreria = (Libreria)instanciaLibrerias.goToPos(index);
+            if (pNombre.equals(libreria.getNombre())){
+                if(pIssnLibro == -1){
+                    return libreria;
+                }
+                else{
+                    return libreria.getListaLibros().buscarPorIssn(pIssnLibro,libreria);
                 }
             }
         }
-        return true;
-    }*/
+        return null;
+    }
 }

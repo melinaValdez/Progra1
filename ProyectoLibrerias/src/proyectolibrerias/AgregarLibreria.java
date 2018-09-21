@@ -196,7 +196,7 @@ public class AgregarLibreria extends javax.swing.JFrame {
         // TODO add your handling code here:
         JPanel panel = new JPanel();
         if (txtNombre.getText().isEmpty()|txtHorario.getText().isEmpty()|txtPais.getText().isEmpty()|txtTelefono.getText().isEmpty()|txtUbicacion.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this,"Llene todos los espacios en blanco");
+            JOptionPane.showMessageDialog(panel, "Por favor, llene los espacios en blanco.", "Error", JOptionPane.ERROR_MESSAGE);
         }
         else{
             Libreria nuevaLibreria = new Libreria(txtNombre.getText(),txtPais.getText(),txtTelefono.getText(),txtHorario.getText());
@@ -205,11 +205,7 @@ public class AgregarLibreria extends javax.swing.JFrame {
             if(validacion){
                 listaLibs.append(nuevaLibreria);
                 JOptionPane.showMessageDialog(panel, "La libreria se añadió correctamente.", "Libreria agregada", JOptionPane.INFORMATION_MESSAGE);
-                txtNombre.setText("");
-                txtPais.setText("");
-                txtHorario.setText("");
-                txtTelefono.setText("");
-                txtUbicacion.setText("");
+                hide();
             }
             else{
                 JOptionPane.showMessageDialog(panel, "Ya existe una librería con este nombre.", "Error", JOptionPane.ERROR_MESSAGE);

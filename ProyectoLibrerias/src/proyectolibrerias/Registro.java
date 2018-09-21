@@ -174,10 +174,10 @@ public class Registro extends javax.swing.JFrame {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
         JPanel panel = new JPanel();
-        if (txtNombre.getText().isEmpty() || txtCedula.getText().isEmpty()){
+        if (txtNombre.getText().isEmpty() | txtCedula.getText().isEmpty()){
             JOptionPane.showMessageDialog(panel, "Por favor, no deje espacios en blanco.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        else if(txtDireccion.getText().isEmpty() || txtCorreo.getText().isEmpty()){
+        else if(txtDireccion.getText().isEmpty() | txtCorreo.getText().isEmpty()){
             JOptionPane.showMessageDialog(panel, "Por favor, no deje espacios en blanco.", "Error", JOptionPane.ERROR_MESSAGE);
         }
         else{

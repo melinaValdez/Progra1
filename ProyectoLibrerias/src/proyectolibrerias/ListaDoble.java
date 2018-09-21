@@ -100,4 +100,28 @@ public class ListaDoble {
         this.position--;
         return true;
     }
+    
+    public Object goToPos(int pos) {
+        if (pos < 0 || pos >= this.size) {
+            System.out.println("Posición inválida");
+            return null;
+        }
+        int temp = 0;
+        current = head.getNext();
+        while (temp != pos){
+            current = current.getNext();
+            temp++;
+        }
+        return current.getElement();
+    }
+    public Object buscarPorIssn(int pIssn, Libreria pLibreria){
+        Libro libro;
+        for (int cont = 0; cont < pLibreria.getListaLibros().getSize(); cont++){
+            libro = (Libro)pLibreria.getListaLibros().getElement();
+            if (libro.getIssn() == pIssn ){
+                return libro;
+            }
+        }
+        return null;
+    }
 }

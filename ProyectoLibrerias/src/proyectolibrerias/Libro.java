@@ -21,8 +21,8 @@ public class Libro {
     
     //Constructor
     public Libro(String pNombre, int pPrecio, int pCantDisponible, String pTema){
-        issnContador++;
         issn = issnContador;
+        issnContador++;
         nombre = pNombre.toUpperCase();
         precio = pPrecio;
         cantDisponible = pCantDisponible;

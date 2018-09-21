@@ -21,7 +21,7 @@ public class AgregarLibro extends javax.swing.JFrame {
         cbTema.addItem("FICCION");
         cbTema.addItem("INGENIERIA");
         cbTema.addItem("ADMINISTRACION");
-        cbTema.addItem("CIENCIASNATURALES");
+        cbTema.addItem("CIENCIAS NATURALES");
         cbTema.addItem("ARTES");
         cbTema.addItem("HISTORIA");
         cbTema.addItem("MATEMATICA");
@@ -179,6 +179,7 @@ public class AgregarLibro extends javax.swing.JFrame {
         ListaSimple listaLibs = ListaSimple.getLibrariesInstance();
         if (listaLibs.getSize() == 0){
             JOptionPane.showMessageDialog(panel, "Actualmente no hay librerías disponibles.", "Error", JOptionPane.ERROR_MESSAGE);
+            hide();
         }
         else{
             int indice = 0;
@@ -205,7 +206,7 @@ public class AgregarLibro extends javax.swing.JFrame {
         // TODO add your handling code here:
         JPanel panel = new JPanel();
         if (txtNombre.getText().isEmpty()|spPrecio.getValue().equals(0)|txtDescripcion.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this,"Por favor llene los espacios en blanco");
+            JOptionPane.showMessageDialog(panel, "Por favor, llene los espacios en blanco.", "Error", JOptionPane.ERROR_MESSAGE);
         }
         else{
             int precio = Integer.parseInt(spPrecio.getValue().toString());
@@ -214,24 +215,17 @@ public class AgregarLibro extends javax.swing.JFrame {
             nuevoLibro.setDescripcion(txtDescripcion.getText());
             ListaSimple listaLibs =  ListaSimple.getLibrariesInstance();
             String nombreLib = cbLibreria.getSelectedItem().toString();
-            System.out.println("Nombre libreria: " + nombreLib);
             int indice = 0;
             while (indice < listaLibs.getSize()){
                 Libreria temporal = (Libreria)listaLibs.goToPos(indice);
-                System.out.println("Nombre temporal: " + temporal.getNombre());
                 if (temporal.getNombre().equals(nombreLib)){
                     temporal.getListaLibros().append(nuevoLibro);
                     break;
                 }
                 indice++;
             }
-            txtNombre.setText("");
-            spPrecio.setValue(0);
-            spCantidad.setValue(0);
-            txtDescripcion.setText("");
-            cbTema.setSelectedIndex(0);
-            cbLibreria.setSelectedIndex(0);
             JOptionPane.showMessageDialog(panel, "El libro ha sido agregado correctamente.", "Libro agregado", JOptionPane.INFORMATION_MESSAGE);
+            hide();
         }    
     }//GEN-LAST:event_btnAceptarActionPerformed
 

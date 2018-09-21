@@ -20,14 +20,8 @@ public class ModificarLibro extends javax.swing.JFrame {
      */
     public ModificarLibro() {
         initComponents();
+        setSize(833,564);
         setLibraries();
-        setSize(648,564);
-        DefaultTableModel model = new DefaultTableModel();
-        tblLibros.setModel(model);
-        model.addColumn("Indice");
-        model.addColumn("Nombre");
-        model.addColumn("Disponibles");
-        model.addColumn("Vendidos");
     }
 
     /**
@@ -44,59 +38,63 @@ public class ModificarLibro extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         lblEscoja = new javax.swing.JLabel();
         lblEscoja2 = new javax.swing.JLabel();
-        cbLibreria = new javax.swing.JComboBox<>();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         lblIndice = new javax.swing.JLabel();
-        spIndice = new javax.swing.JSpinner();
+        spIssn = new javax.swing.JSpinner();
+        btnAceptar = new javax.swing.JButton();
+        cbLibreria = new javax.swing.JComboBox<>();
         lblBackground = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
 
         tblLibros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Libreria", "Issn", "Nombre", "Precio", "Tema", "Disponibles", "Vendidas"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblLibros);
+        if (tblLibros.getColumnModel().getColumnCount() > 0) {
+            tblLibros.getColumnModel().getColumn(0).setResizable(false);
+            tblLibros.getColumnModel().getColumn(1).setResizable(false);
+            tblLibros.getColumnModel().getColumn(2).setResizable(false);
+            tblLibros.getColumnModel().getColumn(3).setResizable(false);
+            tblLibros.getColumnModel().getColumn(4).setResizable(false);
+            tblLibros.getColumnModel().getColumn(5).setResizable(false);
+            tblLibros.getColumnModel().getColumn(6).setResizable(false);
+        }
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(44, 207, 549, 135);
+        jScrollPane1.setBounds(40, 190, 720, 150);
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
         lblTitulo.setText("Libros disponibles");
         getContentPane().add(lblTitulo);
-        lblTitulo.setBounds(190, 30, 281, 48);
+        lblTitulo.setBounds(270, 30, 281, 48);
 
         lblEscoja.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
-        lblEscoja.setText("Escoja la librería donde se encuentra");
+        lblEscoja.setText("Librería donde se encuentra");
         getContentPane().add(lblEscoja);
-        lblEscoja.setBounds(50, 110, 305, 27);
+        lblEscoja.setBounds(110, 90, 250, 27);
 
         lblEscoja2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
-        lblEscoja2.setText("el libro que desea modificar");
+        lblEscoja2.setText("el libro a modificar:");
         getContentPane().add(lblEscoja2);
-        lblEscoja2.setBounds(80, 140, 231, 27);
-
-        cbLibreria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbLibreria.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbLibreriaItemStateChanged(evt);
-            }
-        });
-        cbLibreria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbLibreriaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cbLibreria);
-        cbLibreria.setBounds(390, 120, 160, 27);
+        lblEscoja2.setBounds(160, 120, 170, 27);
 
         btnModificar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         btnModificar.setText("Modificar");
@@ -108,7 +106,7 @@ public class ModificarLibro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnModificar);
-        btnModificar.setBounds(160, 420, 137, 56);
+        btnModificar.setBounds(220, 440, 137, 56);
 
         btnEliminar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
@@ -120,29 +118,79 @@ public class ModificarLibro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(330, 420, 137, 56);
+        btnEliminar.setBounds(480, 440, 137, 56);
 
         lblIndice.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         lblIndice.setForeground(new java.awt.Color(255, 255, 255));
-        lblIndice.setText("Indice del libro:");
+        lblIndice.setText("Issn del libro:");
         getContentPane().add(lblIndice);
-        lblIndice.setBounds(170, 370, 126, 27);
-        getContentPane().add(spIndice);
-        spIndice.setBounds(330, 370, 70, 22);
+        lblIndice.setBounds(300, 370, 108, 27);
+        getContentPane().add(spIssn);
+        spIssn.setBounds(440, 370, 70, 30);
+
+        btnAceptar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnAceptar.setText("Aceptar");
+        btnAceptar.setToolTipText("");
+        btnAceptar.setName("btnBuscar"); // NOI18N
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAceptar);
+        btnAceptar.setBounds(590, 100, 100, 50);
+
+        cbLibreria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbLibreria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbLibreriaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbLibreria);
+        cbLibreria.setBounds(370, 110, 160, 27);
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/background.jpg"))); // NOI18N
         lblBackground.setText("jLabel1");
         getContentPane().add(lblBackground);
-        lblBackground.setBounds(-10, -10, 710, 560);
+        lblBackground.setBounds(-20, -10, 880, 560);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void setTable(String pNombre){
+        JPanel panel = new JPanel();
+        DefaultTableModel model = new DefaultTableModel();
+        tblLibros.setModel(model);
+        model.addColumn("Libreria");
+        model.addColumn("Issn");
+        model.addColumn("Nombre");
+        model.addColumn("Precio");
+        model.addColumn("Tema");
+        model.addColumn("Disponibles");
+        model.addColumn("Vendidos");
+        tblLibros.getColumnModel().getColumn(1).setPreferredWidth(20);
+        tblLibros.getColumnModel().getColumn(2).setPreferredWidth(150);
+        tblLibros.getColumnModel().getColumn(3).setPreferredWidth(40);
+        tblLibros.getColumnModel().getColumn(6).setPreferredWidth(30);
+        tblLibros.getColumnModel().getColumn(5).setPreferredWidth(40);
+        ListaSimple listaLibs = ListaSimple.getLibrariesInstance();
+        for (int index = 0; index < listaLibs.getSize(); index++){
+            Libreria libreria = (Libreria)listaLibs.goToPos(index);
+            if (pNombre.equals(libreria.getNombre())){
+                for (int cont = 0; cont < libreria.getListaLibros().getSize(); cont++){
+                    Libro libro = (Libro)libreria.getListaLibros().goToPos(cont);
+                    model.addRow(new Object[]{libreria.getNombre(),libro.getIssn(),libro.getNombre(),libro.getPrecio(),libro.getTema(),libro.getCantDisponible(),libro.getCantVendida()});
+                }
+                break;
+            }
+        }
+    }
     private void setLibraries(){
         cbLibreria.removeAllItems();
         JPanel panel = new JPanel();
         ListaSimple listaLibs = ListaSimple.getLibrariesInstance();
         if (listaLibs.getSize() == 0){
             JOptionPane.showMessageDialog(panel, "Actualmente no hay librerías disponibles.", "Error", JOptionPane.ERROR_MESSAGE);
+            hide();
         }
         else{
             int indice = 0;
@@ -152,11 +200,8 @@ public class ModificarLibro extends javax.swing.JFrame {
                 indice++;
             }
         }
+        
     }
-    private void cbLibreriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLibreriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbLibreriaActionPerformed
-
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
         
@@ -164,11 +209,24 @@ public class ModificarLibro extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+        ListaSimple listaLibs = ListaSimple.getLibrariesInstance();
+        for (int index = 0; index < listaLibs.getSize(); index++){
+            Libreria libreria = (Libreria)listaLibs.goToPos(index);
+            for (int cont = 0; cont < libreria.getListaLibros().getSize(); cont++){
+                Libro libro = (Libro)libreria.getListaLibros().goToPos(cont);
+            }
+            break;
+    }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void cbLibreriaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbLibreriaItemStateChanged
+    private void cbLibreriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLibreriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbLibreriaItemStateChanged
+    }//GEN-LAST:event_cbLibreriaActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        // TODO add your handling code here:
+        setTable(cbLibreria.getSelectedItem().toString());
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,6 +264,7 @@ public class ModificarLibro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JComboBox<String> cbLibreria;
@@ -215,7 +274,7 @@ public class ModificarLibro extends javax.swing.JFrame {
     private javax.swing.JLabel lblEscoja2;
     private javax.swing.JLabel lblIndice;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JSpinner spIndice;
+    private javax.swing.JSpinner spIssn;
     private javax.swing.JTable tblLibros;
     // End of variables declaration//GEN-END:variables
 }
