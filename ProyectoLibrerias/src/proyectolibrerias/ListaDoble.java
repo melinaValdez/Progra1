@@ -11,6 +11,7 @@ public class ListaDoble {
     private NodoDoble tail;
     private int position;
     private int size;
+    
 
     public ListaDoble(){
         this.head = new NodoDoble();
@@ -19,6 +20,8 @@ public class ListaDoble {
         this.size = 0;
         this.position = -1;
     }
+    
+   
     /**
      * Agrega un nuevo elemento a la lista
      * @param element
@@ -90,6 +93,8 @@ public class ListaDoble {
         this.position++;
         return true;
     }
+    
+    
 
     public boolean previous() {
         if (this.current == this.head) {
@@ -99,5 +104,20 @@ public class ListaDoble {
         this.current = this.current.getPrevious();
         this.position--;
         return true;
+    }
+    
+    
+    public Object goToPos(int pos) {
+        if (pos < 0 || pos >= this.size) {
+            System.out.println("Posición inválida");
+            return null;
+        }
+        int temp = 0;
+        current = head.getNext();
+        while (temp != pos){
+            current = current.getNext();
+            temp++;
+        }
+        return current.getElement();
     }
 }

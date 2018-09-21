@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package proyectolibrerias;
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,9 +15,8 @@ import javax.swing.JPanel;
  */
 public class BuscarLibros extends javax.swing.JFrame {
 
-    /**
-     * Creates new form BuscarLibros
-     */
+    private int i = 0;
+
     public BuscarLibros() {
         initComponents();
         comboTemas.removeAllItems();
@@ -31,6 +32,12 @@ public class BuscarLibros extends javax.swing.JFrame {
         setLibraries();
     }
 
+
+    public void meter(Libro libro){
+        DefaultTableModel model = (DefaultTableModel)tablaResultados.getModel();
+        model.addRow(new Object[]{libro.getNombre(), String.valueOf(libro.getIssn()),libro.getTema()});
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,230 +47,196 @@ public class BuscarLibros extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        buscarLibro = new javax.swing.JButton();
-        comboLibrerias = new javax.swing.JComboBox<>();
-        comboTemas = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        comboLibrerias = new javax.swing.JComboBox<>();
+        comboTemas = new javax.swing.JComboBox<>();
         libroBuscado = new javax.swing.JTextField();
         txtMinimo = new javax.swing.JTextField();
         txtMaximo = new javax.swing.JTextField();
+        buscarLibro = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaResultados = new javax.swing.JTable();
+        lblFondo = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
-        jLabel1.setText("Buscar Libros");
+        jPanel2.setLayout(null);
+
+        lblTitulo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
+        lblTitulo.setText("Buscar");
+        jPanel2.add(lblTitulo);
+        lblTitulo.setBounds(290, 0, 110, 70);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
+        jLabel1.setText("Libro");
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(40, 80, 70, 30);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
-        jLabel2.setText("Nombre libro");
+        jLabel2.setText("Libreria");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(300, 70, 70, 40);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
-        jLabel3.setText("Nombre Libreria");
+        jLabel3.setText("Tema");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(560, 70, 70, 40);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-        jLabel4.setText("Rango precio");
+        jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
+        jLabel5.setText("Precio Minimo");
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(40, 170, 140, 40);
 
-        buscarLibro.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
+        jLabel6.setText("Precio Maximo");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(40, 250, 180, 60);
+
+        comboLibrerias.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
+        comboLibrerias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(comboLibrerias);
+        comboLibrerias.setBounds(270, 120, 180, 50);
+
+        comboTemas.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
+        comboTemas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(comboTemas);
+        comboTemas.setBounds(510, 120, 180, 50);
+
+        libroBuscado.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
+        libroBuscado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                libroBuscadoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(libroBuscado);
+        libroBuscado.setBounds(40, 120, 210, 50);
+
+        txtMinimo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
+        txtMinimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMinimoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtMinimo);
+        txtMinimo.setBounds(40, 210, 140, 40);
+
+        txtMaximo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
+        txtMaximo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMaximoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtMaximo);
+        txtMaximo.setBounds(40, 310, 140, 40);
+
+        buscarLibro.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         buscarLibro.setText("Buscar");
         buscarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscarLibroActionPerformed(evt);
             }
         });
+        jPanel2.add(buscarLibro);
+        buscarLibro.setBounds(40, 460, 140, 50);
 
-        comboLibrerias.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-        comboLibrerias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tablaResultados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        comboTemas.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-        comboTemas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
-        jLabel5.setText("Tema");
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-        jLabel6.setText("Desde");
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-        jLabel7.setText("Hasta");
-
-        libroBuscado.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-
-        txtMinimo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-        txtMinimo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMinimoActionPerformed(evt);
+            },
+            new String [] {
+                "Nombre", "Issn", "Tema"
             }
-        });
+        ));
+        jScrollPane1.setViewportView(tablaResultados);
 
-        txtMaximo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jPanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(230, 200, 510, 320);
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/background.jpg"))); // NOI18N
+        jPanel2.add(lblFondo);
+        lblFondo.setBounds(0, 0, 770, 540);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(libroBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtMaximo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                        .addComponent(txtMinimo, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buscarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboLibrerias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(55, 55, 55)))
-                .addGap(74, 74, 74)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comboTemas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(30, 30, 30)))
-                .addGap(139, 139, 139))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1)
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(44, 44, 44)
-                                .addComponent(comboTemas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(libroBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboLibrerias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel4)
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtMaximo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                        .addComponent(buscarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void libroBuscadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_libroBuscadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_libroBuscadoActionPerformed
+
     private void buscarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarLibroActionPerformed
         // TODO add your handling code here:
-        // Validar si la entrada esta vacia
-        JPanel panel = new JPanel();
-        Libro libro = new Libro();
-        ListaSimple listaLibrerias = new ListaSimple();
-        Libreria libreria = new Libreria();
-        if(!comboLibrerias.getSelectedItem().toString().equals("Buscar Libreria")){
-            String libreriaBuscada = comboLibrerias.getSelectedItem().toString();
-            while(listaLibrerias.next()){
-                if (libreriaBuscada.equals("")){
-                    break;
+
+        String libroElegido = libroBuscado.getText();
+        String temaElegido = comboTemas.getSelectedItem().toString();
+        String libreriaElegida = comboLibrerias.getSelectedItem().toString();
+        String precioMinimo = txtMinimo.getText();
+        String precioMaximo = txtMaximo.getText();
+        ListaSimple listaLibs = ListaSimple.getLibrariesInstance();
+        ListaDoble listaBuscados = new ListaDoble();
+
+        if (libroBuscado.getText().isEmpty() && txtMinimo.getText().isEmpty() && txtMaximo.getText().isEmpty() && temaElegido.equals("Buscar tema") && libreriaElegida.equals("Buscar Libreria")) {
+            JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+        } else if (txtMinimo.getText().isEmpty() && txtMaximo.getText().isEmpty() && temaElegido.equals("Buscar tema") && libreriaElegida.equals("Buscar Libreria")) {
+            if (!libroBuscado.getText().isEmpty()) {
+                for (int i = 0; i <= listaLibs.getSize() - 1; i++) {
+                    Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                    int contadorListaLb = temporal.getListaLibros().getSize();
+                    for (int k = 0; k <= temporal.getListaLibros().getSize() - 1; k++) {
+                        Libro temporalLb = (Libro) temporal.getListaLibros().goToPos(k);
+                        String libroVisto = temporalLb.getNombre();
+                        if (libroVisto.equalsIgnoreCase(libroBuscado.getText())) {
+                            System.out.println(libroVisto);
+                            System.out.println("temporal libro" + temporalLb.toString());
+                            meter(temporalLb);
+                            this.i++;
+                        }
+                    }
                 }
             }
-            if (!libroBuscado.getText().isEmpty()){
-            libro.setNombre(libroBuscado.getText());
-            }
-            else if(!comboTemas.getSelectedItem().toString().equals("Buscar tema")){
-                libro.setTema(comboTemas.getSelectedItem().toString());
-            }
-            else if(!txtMinimo.getText().isEmpty()){
-                Integer.parseInt(txtMinimo.getText());
-            }
-        }
-        else if (!libroBuscado.getText().isEmpty()){
-            libro.setNombre(libroBuscado.getText());
-        }
-        else if(!comboTemas.getSelectedItem().toString().equals("Buscar tema")){
-            libro.setTema(comboTemas.getSelectedItem().toString());
             
         }
-        else if(!txtMinimo.getText().isEmpty()){
-            Integer.parseInt(txtMinimo.getText());
-            
-        }
+
+
     }//GEN-LAST:event_buscarLibroActionPerformed
 
     private void txtMinimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMinimoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMinimoActionPerformed
 
-    private void setLibraries(){
+    private void txtMaximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaximoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMaximoActionPerformed
+
+    private void setLibraries() {
         comboLibrerias.removeAllItems();
         comboLibrerias.addItem("Buscar Libreria");
         JPanel panel = new JPanel();
         ListaSimple listaLibs = ListaSimple.getLibrariesInstance();
-        if (listaLibs.getSize() == 0){
+        if (listaLibs.getSize() == 0) {
             JOptionPane.showMessageDialog(panel, "Actualmente no hay librerías disponibles.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        else{
+        } else {
             int indice = 0;
-            while (indice < listaLibs.getSize()){
-                Libreria temporal = (Libreria)listaLibs.goToPos(indice);
+            while (indice < listaLibs.getSize()) {
+                Libreria temporal = (Libreria) listaLibs.goToPos(indice);
                 comboLibrerias.addItem(temporal.getNombre().toUpperCase());
                 indice++;
             }
         }
-    }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BuscarLibros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BuscarLibros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BuscarLibros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BuscarLibros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new BuscarLibros().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -273,11 +246,14 @@ public class BuscarLibros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField libroBuscado;
+    private javax.swing.JTable tablaResultados;
     private javax.swing.JTextField txtMaximo;
     private javax.swing.JTextField txtMinimo;
     // End of variables declaration//GEN-END:variables

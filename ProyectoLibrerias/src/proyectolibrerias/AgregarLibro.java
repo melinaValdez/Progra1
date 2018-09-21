@@ -214,7 +214,7 @@ public class AgregarLibro extends javax.swing.JFrame {
             nuevoLibro.setDescripcion(txtDescripcion.getText());
             ListaSimple listaLibs =  ListaSimple.getLibrariesInstance();
             String nombreLib = cbLibreria.getSelectedItem().toString();
-            System.out.println("Nombre libreria: " + nombreLib);
+            //System.out.println("Nombre libreria: " + nombreLib);
             int indice = 0;
             while (indice < listaLibs.getSize()){
                 Libreria temporal = (Libreria)listaLibs.goToPos(indice);
