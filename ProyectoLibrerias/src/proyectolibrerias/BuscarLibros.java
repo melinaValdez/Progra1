@@ -35,7 +35,7 @@ public class BuscarLibros extends javax.swing.JFrame {
 
     public void meter(Libro libro){
         DefaultTableModel model = (DefaultTableModel)tablaResultados.getModel();
-        model.addRow(new Object[]{libro.getNombre(), String.valueOf(libro.getIssn()),libro.getTema()});
+        model.addRow(new Object[]{libro.getNombre(), String.valueOf(libro.getIssn()),libro.getTema(),String.valueOf(libro.getPrecio()),String.valueOf(libro.getCantDisponible()),String.valueOf(libro.cantVendida),libro.getDescripcion()});
 
     }
     /**
@@ -148,23 +148,23 @@ public class BuscarLibros extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Issn", "Tema"
+                "Nombre", "Issn", "Tema", "Precio", "Disponibles", "Vendidos", "Descripcion"
             }
         ));
         jScrollPane1.setViewportView(tablaResultados);
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(200, 200, 540, 320);
+        jScrollPane1.setBounds(200, 200, 630, 320);
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/background.jpg"))); // NOI18N
         jPanel2.add(lblFondo);
-        lblFondo.setBounds(0, 0, 770, 540);
+        lblFondo.setBounds(0, 0, 840, 540);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 836, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
