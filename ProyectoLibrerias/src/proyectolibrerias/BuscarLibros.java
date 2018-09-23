@@ -607,7 +607,339 @@ public class BuscarLibros extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
             }
          //Buscador libro, tema y minimo   
-        }    
+        }else if(txtMaximo.getText().isEmpty() && libreriaElegida.equals("Buscar Libreria")){
+            if(!libroBuscado.getText().isEmpty() && !txtMinimo.getText().isEmpty() && !temaElegido.equals("Buscar tema") ){
+                for (int i = 0; i <= listaLibs.getSize() - 1; i++) {
+                    Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                    int contadorListaLb = temporal.getListaLibros().getSize();
+                    for (int k = 0; k <= temporal.getListaLibros().getSize() - 1; k++) {
+                        Libro temporalLb = (Libro) temporal.getListaLibros().goToPos(k);
+                        String libroVisto = temporalLb.getNombre();
+                        String temaVisto = temporalLb.getTema();
+                        int precioVisto = temporalLb.getPrecio();
+                        //int cambioMaximo = Integer.parseInt(precioMaximo);
+                        int cambioMinimo = Integer.parseInt(precioMinimo);
+                        if (libroVisto.equalsIgnoreCase(libroBuscado.getText()) && temaVisto.equalsIgnoreCase(temaElegido) &&  cambioMinimo <= precioVisto ) {
+                            System.out.println(libroVisto);
+                            System.out.println("temporal libro" + temporalLb.toString());
+                            meter(temporalLb);
+                            //this.i++;
+                        }
+                    }
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
+          //Buscador libro, tema y maximo
+        }else if(txtMinimo.getText().isEmpty() && libreriaElegida.equals("Buscar Libreria")){
+            if(!libroBuscado.getText().isEmpty() && !txtMaximo.getText().isEmpty() && !temaElegido.equals("Buscar tema") ){
+                for (int i = 0; i <= listaLibs.getSize() - 1; i++) {
+                    Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                    int contadorListaLb = temporal.getListaLibros().getSize();
+                    for (int k = 0; k <= temporal.getListaLibros().getSize() - 1; k++) {
+                        Libro temporalLb = (Libro) temporal.getListaLibros().goToPos(k);
+                        String libroVisto = temporalLb.getNombre();
+                        String temaVisto = temporalLb.getTema();
+                        int precioVisto = temporalLb.getPrecio();
+                        int cambioMaximo = Integer.parseInt(precioMaximo);
+                        //int cambioMinimo = Integer.parseInt(precioMinimo);
+                        if (libroVisto.equalsIgnoreCase(libroBuscado.getText()) && temaVisto.equalsIgnoreCase(temaElegido) &&  precioVisto <= cambioMaximo ) {
+                            System.out.println(libroVisto);
+                            System.out.println("temporal libro" + temporalLb.toString());
+                            meter(temporalLb);
+                            //this.i++;
+                        }
+                    }
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
+         //Buscador libro, minimo y maximo   
+        }else if(libreriaElegida.equals("Buscar Libreria") && temaElegido.equals("Buscar tema")){
+            if(!libroBuscado.getText().isEmpty() && !txtMaximo.getText().isEmpty() && !txtMinimo.getText().isEmpty() ){
+                for (int i = 0; i <= listaLibs.getSize() - 1; i++) {
+                    Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                    int contadorListaLb = temporal.getListaLibros().getSize();
+                    for (int k = 0; k <= temporal.getListaLibros().getSize() - 1; k++) {
+                        Libro temporalLb = (Libro) temporal.getListaLibros().goToPos(k);
+                        String libroVisto = temporalLb.getNombre();
+                        int precioVisto = temporalLb.getPrecio();
+                        int cambioMaximo = Integer.parseInt(precioMaximo);
+                        int cambioMinimo = Integer.parseInt(precioMinimo);
+                        if (libroVisto.equalsIgnoreCase(libroBuscado.getText()) && cambioMinimo <= precioVisto && precioVisto <= cambioMaximo ) {
+                            System.out.println(libroVisto);
+                            System.out.println("temporal libro" + temporalLb.toString());
+                            meter(temporalLb);
+                            //this.i++;
+                        }
+                    }
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
+         //Buscador libreria, tema y minimo   
+        }else if(libroBuscado.getText().isEmpty() && txtMaximo.getText().isEmpty()){
+            if(!libreriaElegida.equals("Buscar Libreria") && !temaElegido.equals("Buscar tema") && !txtMinimo.getText().isEmpty()){
+                for (int i = 0; i <= listaLibs.getSize() - 1; i++) {
+                    Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                    String libreria = temporal.getNombre();
+                    System.out.println(libreria);
+                    int contadorListaLb = temporal.getListaLibros().getSize();
+                    for (int k = 0; k <= temporal.getListaLibros().getSize() - 1; k++) {
+                        Libro temporalLb = (Libro) temporal.getListaLibros().goToPos(k);
+                        String libroVisto = temporalLb.getTema();
+                        int precioVisto = temporalLb.getPrecio();
+                        //int cambioMaximo = Integer.parseInt(precioMaximo);
+                        int cambioMinimo = Integer.parseInt(precioMinimo);                        
+                        if (libroVisto.equalsIgnoreCase(temaElegido) && libreria.equalsIgnoreCase(libreriaElegida) && cambioMinimo <= precioVisto) {
+                            System.out.println(libroVisto);
+                            System.out.println("temporal libro" + temporalLb.toString());
+                            meter(temporalLb);
+                            //this.i++;
+                        }
+                    }
+                }     
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
+        //Buscador libreria, tema y maximo    
+        }else if(libroBuscado.getText().isEmpty() && txtMinimo.getText().isEmpty()){
+            if(!libreriaElegida.equals("Buscar Libreria") && !temaElegido.equals("Buscar tema") && !txtMaximo.getText().isEmpty()){
+                for (int i = 0; i <= listaLibs.getSize() - 1; i++) {
+                    Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                    String libreria = temporal.getNombre();
+                    System.out.println(libreria);
+                    int contadorListaLb = temporal.getListaLibros().getSize();
+                    for (int k = 0; k <= temporal.getListaLibros().getSize() - 1; k++) {
+                        Libro temporalLb = (Libro) temporal.getListaLibros().goToPos(k);
+                        String libroVisto = temporalLb.getTema();
+                        int precioVisto = temporalLb.getPrecio();
+                        int cambioMaximo = Integer.parseInt(precioMaximo);
+                        //int cambioMinimo = Integer.parseInt(precioMinimo);                        
+                        if (libroVisto.equalsIgnoreCase(temaElegido) && libreria.equalsIgnoreCase(libreriaElegida) && precioVisto <= cambioMaximo) {
+                            System.out.println(libroVisto);
+                            System.out.println("temporal libro" + temporalLb.toString());
+                            meter(temporalLb);
+                            //this.i++;
+                        }
+                    }
+                }     
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
+        //Buscador libreria minimo y maximo
+        }else if(libroBuscado.getText().isEmpty() && temaElegido.equals("Buscar tema")){
+            if(!libreriaElegida.equals("Buscar Libreria") && !txtMaximo.getText().isEmpty() && !txtMinimo.getText().isEmpty()){
+                for (int i = 0; i <= listaLibs.getSize() - 1; i++) {
+                    Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                    String libreria = temporal.getNombre();
+                    System.out.println(libreria);
+                    int contadorListaLb = temporal.getListaLibros().getSize();
+                    for (int k = 0; k <= temporal.getListaLibros().getSize() - 1; k++) {
+                        Libro temporalLb = (Libro) temporal.getListaLibros().goToPos(k);
+                        //String libroVisto = temporalLb.getTema();
+                        int precioVisto = temporalLb.getPrecio();
+                        int cambioMaximo = Integer.parseInt(precioMaximo);
+                        int cambioMinimo = Integer.parseInt(precioMinimo);                        
+                        if (libreria.equalsIgnoreCase(libreriaElegida) && cambioMinimo <= precioVisto && precioVisto <= cambioMaximo) {
+                            //System.out.println(libroVisto);
+                            System.out.println("temporal libro" + temporalLb.toString());
+                            meter(temporalLb);
+                            //this.i++;
+                        }
+                    }
+                }     
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
+        //Buscador tema, minimo y maximo    
+        }else if(libroBuscado.getText().isEmpty() && libreriaElegida.equals("Buscar Libreria")){
+            if(!temaElegido.equals("Buscar tema") && !txtMinimo.getText().isEmpty() && !txtMaximo.getText().isEmpty()){
+                for (int i = 0; i <= listaLibs.getSize() - 1; i++) {
+                    Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                    int contadorListaLb = temporal.getListaLibros().getSize();
+                    for (int k = 0; k <= temporal.getListaLibros().getSize() - 1; k++) {
+                        Libro temporalLb = (Libro) temporal.getListaLibros().goToPos(k);
+                        String libroVisto = temporalLb.getTema();
+                        int precioVisto = temporalLb.getPrecio();
+                        int cambioMinimo = Integer.parseInt(precioMinimo);
+                        int cambioMaximo = Integer.parseInt(precioMaximo);
+                        if (cambioMinimo <= precioVisto && precioVisto <= cambioMaximo && libroVisto.equalsIgnoreCase(temaElegido)) {
+                            System.out.println(precioVisto);
+                            System.out.println("temporal libro" + temporalLb.toString());
+                            meter(temporalLb);
+                            //this.i++;
+                        }
+                    }
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
+        //Buscador libro, libreria, tema y minimo
+        }else if(txtMaximo.getText().isEmpty()){
+            if(!libroBuscado.getText().isEmpty() && !libreriaElegida.equals("Buscar Libreria") &&  !temaElegido.equals("Buscar tema") && !txtMinimo.getText().isEmpty()){
+                for (int i = 0; i <= listaLibs.getSize() - 1; i++) {
+                    Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                    String libreria = temporal.getNombre();
+                    System.out.println(libreria);
+                    int contadorListaLb = temporal.getListaLibros().getSize();
+                    for (int k = 0; k <= temporal.getListaLibros().getSize() - 1; k++) {
+                        Libro temporalLb = (Libro) temporal.getListaLibros().goToPos(k);
+                        String libroVisto = temporalLb.getNombre();
+                        String temaVisto = temporalLb.getTema();
+                        int precioVisto = temporalLb.getPrecio();
+                        int cambioMinimo = Integer.parseInt(precioMinimo);                        
+                        if (libroVisto.equalsIgnoreCase(libroBuscado.getText()) && libreria.equalsIgnoreCase(libreriaElegida) && temaVisto.equalsIgnoreCase(temaElegido) && cambioMinimo <= precioVisto){
+                            System.out.println(libroVisto);
+                            System.out.println("temporal libro" + temporalLb.toString());
+                            meter(temporalLb);
+                            //this.i++;
+                        }
+                    }
+                }                
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
+        //Buscador libro, libreria, tema y maximo
+        }else if(txtMinimo.getText().isEmpty()){
+            if(!libroBuscado.getText().isEmpty() && !libreriaElegida.equals("Buscar Libreria") &&  !temaElegido.equals("Buscar tema") && !txtMaximo.getText().isEmpty()){
+                for (int i = 0; i <= listaLibs.getSize() - 1; i++) {
+                    Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                    String libreria = temporal.getNombre();
+                    System.out.println(libreria);
+                    int contadorListaLb = temporal.getListaLibros().getSize();
+                    for (int k = 0; k <= temporal.getListaLibros().getSize() - 1; k++) {
+                        Libro temporalLb = (Libro) temporal.getListaLibros().goToPos(k);
+                        String libroVisto = temporalLb.getNombre();
+                        String temaVisto = temporalLb.getTema();
+                        int precioVisto = temporalLb.getPrecio();
+                        int cambioMaximo = Integer.parseInt(precioMaximo);                        
+                        if (libroVisto.equalsIgnoreCase(libroBuscado.getText()) && libreria.equalsIgnoreCase(libreriaElegida) && temaVisto.equalsIgnoreCase(temaElegido) && precioVisto <= cambioMaximo){
+                            System.out.println(libroVisto);
+                            System.out.println("temporal libro" + temporalLb.toString());
+                            meter(temporalLb);
+                            //this.i++;
+                        }
+                    }
+                }                
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
+        //Buscador libro, tema, minimo y maximo
+        }else if(libreriaElegida.equals("Buscar Libreria")){
+            if(!libroBuscado.getText().isEmpty() && !temaElegido.equals("Buscar tema") && !txtMaximo.getText().isEmpty() && !txtMinimo.getText().isEmpty() ){
+                for (int i = 0; i <= listaLibs.getSize() - 1; i++) {
+                    Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                    //String libreria = temporal.getNombre();
+                    //System.out.println(libreria);
+                    int contadorListaLb = temporal.getListaLibros().getSize();
+                    for (int k = 0; k <= temporal.getListaLibros().getSize() - 1; k++) {
+                        Libro temporalLb = (Libro) temporal.getListaLibros().goToPos(k);
+                        String libroVisto = temporalLb.getNombre();
+                        String temaVisto = temporalLb.getTema();
+                        int precioVisto = temporalLb.getPrecio();
+                        int cambioMaximo = Integer.parseInt(precioMaximo);
+                        int cambioMinimo = Integer.parseInt(precioMinimo);
+                        if (libroVisto.equalsIgnoreCase(libroBuscado.getText()) && temaVisto.equalsIgnoreCase(temaElegido) && cambioMinimo <= precioVisto && precioVisto <= cambioMaximo){
+                            System.out.println(libroVisto);
+                            System.out.println("temporal libro" + temporalLb.toString());
+                            meter(temporalLb);
+                            //this.i++;
+                        }
+                    }
+                }                
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
+        //Buscador libreria, tema, minimo y maximo
+        }else if(libroBuscado.getText().isEmpty()){
+            if(!libreriaElegida.equals("Buscar Libreria") && !temaElegido.equals("Buscar tema") && !txtMaximo.getText().isEmpty() && !txtMinimo.getText().isEmpty() ){
+                for (int i = 0; i <= listaLibs.getSize() - 1; i++) {
+                    Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                    String libreria = temporal.getNombre();
+                    System.out.println(libreria);
+                    int contadorListaLb = temporal.getListaLibros().getSize();
+                    for (int k = 0; k <= temporal.getListaLibros().getSize() - 1; k++) {
+                        Libro temporalLb = (Libro) temporal.getListaLibros().goToPos(k);
+                        //String libroVisto = temporalLb.getNombre();
+                        String temaVisto = temporalLb.getTema();
+                        int precioVisto = temporalLb.getPrecio();
+                        int cambioMaximo = Integer.parseInt(precioMaximo);
+                        int cambioMinimo = Integer.parseInt(precioMinimo);
+                        if (libreria.equalsIgnoreCase(libreriaElegida) && temaVisto.equalsIgnoreCase(temaElegido) && cambioMinimo <= precioVisto && precioVisto <= cambioMaximo){
+                            //System.out.println(libroVisto);
+                            System.out.println("temporal libro" + temporalLb.toString());
+                            meter(temporalLb);
+                            //this.i++;
+                        }
+                    }
+                }                
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
+        //Buscador libro, libreria, minimo y maximo
+        }else if(temaElegido.equals("Buscar tema")){
+            if(!libroBuscado.getText().isEmpty() && !libreriaElegida.equals("Buscar Libreria") && !txtMaximo.getText().isEmpty() && !txtMinimo.getText().isEmpty() ){
+                for (int i = 0; i <= listaLibs.getSize() - 1; i++) {
+                    Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                    String libreria = temporal.getNombre();
+                    System.out.println(libreria);
+                    int contadorListaLb = temporal.getListaLibros().getSize();
+                    for (int k = 0; k <= temporal.getListaLibros().getSize() - 1; k++) {
+                        Libro temporalLb = (Libro) temporal.getListaLibros().goToPos(k);
+                        String libroVisto = temporalLb.getNombre();
+                        String temaVisto = temporalLb.getTema();
+                        int precioVisto = temporalLb.getPrecio();
+                        int cambioMaximo = Integer.parseInt(precioMaximo);
+                        int cambioMinimo = Integer.parseInt(precioMinimo);
+                        if (libroVisto.equalsIgnoreCase(libroBuscado.getText()) && libreria.equalsIgnoreCase(libreriaElegida) && cambioMinimo <= precioVisto && precioVisto <= cambioMaximo){
+                            System.out.println(libroVisto);
+                            System.out.println("temporal libro" + temporalLb.toString());
+                            meter(temporalLb);
+                        }
+                    }
+                }                
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
+        //Buscador todas las entradas de busqueda
+        }else if(!libroBuscado.getText().isEmpty() && !txtMinimo.getText().isEmpty() && !txtMaximo.getText().isEmpty() && !temaElegido.equals("Buscar tema") && !libreriaElegida.equals("Buscar Libreria")){
+            for (int i = 0; i <= listaLibs.getSize() - 1; i++) {
+                Libreria temporal = (Libreria) listaLibs.goToPos(i);
+                String libreria = temporal.getNombre();
+                System.out.println(libreria);
+                int contadorListaLb = temporal.getListaLibros().getSize();
+                for (int k = 0; k <= temporal.getListaLibros().getSize() - 1; k++) {
+                    Libro temporalLb = (Libro) temporal.getListaLibros().goToPos(k);
+                    String libroVisto = temporalLb.getNombre();
+                    String temaVisto = temporalLb.getTema();
+                    int precioVisto = temporalLb.getPrecio();
+                    int cambioMaximo = Integer.parseInt(precioMaximo);
+                    int cambioMinimo = Integer.parseInt(precioMinimo);
+                    if (libroVisto.equalsIgnoreCase(libroBuscado.getText()) && libreria.equalsIgnoreCase(libreriaElegida) && temaVisto.equalsIgnoreCase(temaElegido) && cambioMinimo <= precioVisto && precioVisto <= cambioMaximo){
+                        System.out.println(libroVisto);
+                        System.out.println("temporal libro" + temporalLb.toString());
+                        meter(temporalLb);
+                    }
+                }
+            }
+        }else{
+                JOptionPane.showMessageDialog(this, "Por favor indique una de las opciones a elegir");
+            }
+        
+                
     }//GEN-LAST:event_buscarLibroActionPerformed
 
     private void txtMinimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMinimoActionPerformed
