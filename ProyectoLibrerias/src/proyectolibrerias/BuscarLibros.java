@@ -151,6 +151,11 @@ public class BuscarLibros extends javax.swing.JFrame {
                 "Nombre", "Issn", "Tema", "Precio", "Disponibles", "Vendidos", "Descripcion"
             }
         ));
+        tablaResultados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaResultadosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaResultados);
 
         jPanel2.add(jScrollPane1);
@@ -617,6 +622,22 @@ public class BuscarLibros extends javax.swing.JFrame {
     private void txtMaximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaximoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaximoActionPerformed
+
+    private void tablaResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaResultadosMouseClicked
+        DefaultTableModel modelo = (DefaultTableModel)tablaResultados.getModel();
+        
+        int indice = tablaResultados.getSelectedRow();
+        
+        String issn = (String) modelo.getValueAt(indice, 1);
+        String nombre = (String) modelo.getValueAt(indice, 0);
+        String tema = (String) modelo.getValueAt(indice, 2);
+        String disponible = (String) modelo.getValueAt(indice, 3);
+        String vendidos = (String) modelo.getValueAt(indice, 4);
+        String precio = (String) modelo.getValueAt(indice, 5);
+        String descripcion = (String) modelo.getValueAt(indice, 6);
+        
+        new DetalleLibros(issn, nombre, tema, disponible, vendidos, precio, descripcion).setVisible(true);
+    }//GEN-LAST:event_tablaResultadosMouseClicked
 
     private void setLibraries() {
         comboLibrerias.removeAllItems();
