@@ -11,16 +11,27 @@ import javax.swing.JPanel;
  *
  * @author Melina
  */
-public class AgregarLibreria extends javax.swing.JFrame {
-
+public class DatosLibreria extends javax.swing.JFrame {
+    Libreria libreria;
     /**
      * Creates new form AgregarLibreria
      */
-    public AgregarLibreria() {
+    public DatosLibreria() {
         initComponents();
         setSize(815, 607);
+        libreria = null;
     }
-
+    
+    public DatosLibreria(Libreria pLibreria) {
+        initComponents();
+        setSize(815, 607);
+        libreria = pLibreria;
+        txtNombre.setText(libreria.getNombre());
+        txtHorario.setText(libreria.getHorario());
+        txtUbicacion.setText(libreria.getUbicacion());
+        txtTelefono.setText(libreria.getTelefono());
+        txtPais.setText(libreria.getPais());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -198,6 +209,15 @@ public class AgregarLibreria extends javax.swing.JFrame {
         if (txtNombre.getText().isEmpty()|txtHorario.getText().isEmpty()|txtPais.getText().isEmpty()|txtTelefono.getText().isEmpty()|txtUbicacion.getText().isEmpty()){
             JOptionPane.showMessageDialog(panel, "Por favor, llene los espacios en blanco.", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        else if (libreria != null){
+            libreria.setHorario(txtHorario.getText().toUpperCase());
+            libreria.setNombre(txtNombre.getText().toUpperCase());
+            libreria.setPais(txtPais.getText().toUpperCase());
+            libreria.setTelefono(txtTelefono.getText().toUpperCase());
+            libreria.setUbicacion(txtUbicacion.getText().toUpperCase());
+            JOptionPane.showMessageDialog(panel, "La libreria se modificó correctamente.", "Libreria modificada", JOptionPane.INFORMATION_MESSAGE);
+            hide();
+        }
         else{
             Libreria nuevaLibreria = new Libreria(txtNombre.getText(),txtPais.getText(),txtTelefono.getText(),txtHorario.getText());
             ListaSimple listaLibs = ListaSimple.getLibrariesInstance();
@@ -230,20 +250,21 @@ public class AgregarLibreria extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AgregarLibreria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosLibreria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AgregarLibreria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosLibreria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AgregarLibreria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosLibreria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AgregarLibreria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosLibreria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AgregarLibreria().setVisible(true);
+                new DatosLibreria().setVisible(true);
             }
         });
     }

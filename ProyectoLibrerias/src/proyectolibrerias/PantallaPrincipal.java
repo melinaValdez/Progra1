@@ -35,6 +35,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnAgregarLibreria = new javax.swing.JButton();
         btnModificarLibro = new javax.swing.JButton();
         btnRegistrarse = new javax.swing.JButton();
+        btnModificarLibreria = new javax.swing.JButton();
         lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -94,7 +95,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAgregarLibreria);
-        btnAgregarLibreria.setBounds(70, 230, 137, 56);
+        btnAgregarLibreria.setBounds(70, 220, 137, 56);
 
         btnModificarLibro.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         btnModificarLibro.setText("Modificar libro");
@@ -106,7 +107,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnModificarLibro);
-        btnModificarLibro.setBounds(70, 330, 137, 56);
+        btnModificarLibro.setBounds(70, 320, 137, 56);
 
         btnRegistrarse.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         btnRegistrarse.setText("Registrarse");
@@ -118,6 +119,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(btnRegistrarse);
         btnRegistrarse.setBounds(550, 230, 137, 56);
+
+        btnModificarLibreria.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnModificarLibreria.setText("Modificar libreria");
+        btnModificarLibreria.setToolTipText("");
+        btnModificarLibreria.setName("btnBuscar"); // NOI18N
+        btnModificarLibreria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarLibreriaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnModificarLibreria);
+        btnModificarLibreria.setBounds(70, 420, 141, 56);
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/background.jpg"))); // NOI18N
         getContentPane().add(lblBackground);
@@ -139,7 +152,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void btnAgregarLibreriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibreriaActionPerformed
         // TODO add your handling code here:
-        new AgregarLibreria().setVisible(true);
+        new DatosLibreria().setVisible(true);
     }//GEN-LAST:event_btnAgregarLibreriaActionPerformed
 
     private void btnModificarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarLibroActionPerformed
@@ -151,6 +164,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Registro().setVisible(true);
     }//GEN-LAST:event_btnRegistrarseActionPerformed
+
+    private void btnModificarLibreriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarLibreriaActionPerformed
+        // TODO add your handling code here:
+        new ModificarLibreria().setVisible(true);
+    }//GEN-LAST:event_btnModificarLibreriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,6 +209,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarLibreria;
     private javax.swing.JButton btnAgregarLibro;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnModificarLibreria;
     private javax.swing.JButton btnModificarLibro;
     private javax.swing.JButton btnRegistrarse;
     private javax.swing.JLabel lblAdministrador;

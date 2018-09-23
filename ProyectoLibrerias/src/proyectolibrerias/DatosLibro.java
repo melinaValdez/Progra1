@@ -142,10 +142,12 @@ public class DatosLibro extends javax.swing.JFrame {
         });
         getContentPane().add(cbTema);
         cbTema.setBounds(140, 220, 160, 27);
-        getContentPane().add(spCantidad);
-        spCantidad.setBounds(520, 150, 70, 22);
 
-        spPrecio.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
+        spCantidad.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        getContentPane().add(spCantidad);
+        spCantidad.setBounds(520, 150, 70, 26);
+
+        spPrecio.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         getContentPane().add(spPrecio);
         spPrecio.setBounds(140, 160, 70, 24);
 
@@ -168,7 +170,7 @@ public class DatosLibro extends javax.swing.JFrame {
         btnAceptar.setBounds(340, 490, 99, 58);
 
         txtDescripcion.setColumns(20);
-        txtDescripcion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        txtDescripcion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         txtDescripcion.setRows(5);
         jScrollPane2.setViewportView(txtDescripcion);
 
@@ -231,9 +233,9 @@ public class DatosLibro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(panel, "Por favor, llene los espacios en blanco.", "Error", JOptionPane.ERROR_MESSAGE);
         }
         else if (libroActual != null){
-            libroActual.setNombre(txtNombre.getText());
+            libroActual.setNombre(txtNombre.getText().toUpperCase());
             libroActual.setCantDisponible(Integer.parseInt(spCantidad.getValue().toString()));
-            libroActual.setDescripcion(txtDescripcion.getText());
+            libroActual.setDescripcion(txtDescripcion.getText().toUpperCase());
             libroActual.setTema(cbTema.getSelectedItem().toString());
             libroActual.setPrecio(Integer.parseInt(spPrecio.getValue().toString()));
             JOptionPane.showMessageDialog(panel, "Libro modificado exitosamente.", "Libro modificado", JOptionPane.INFORMATION_MESSAGE);
