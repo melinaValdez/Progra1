@@ -24,7 +24,7 @@ public class BuscarLibros extends javax.swing.JFrame {
         comboTemas.addItem("FICCION");
         comboTemas.addItem("INGENIERIA");
         comboTemas.addItem("ADMINISTRACION");
-        comboTemas.addItem("CIENCIASNATURALES");
+        comboTemas.addItem("CIENCIAS NATURALES");
         comboTemas.addItem("ARTES");
         comboTemas.addItem("HISTORIA");
         comboTemas.addItem("MATEMATICA");
