@@ -192,6 +192,7 @@ public class Registro extends javax.swing.JFrame {
                 txtDireccion.setText("");
                 txtCorreo.setText("");
                 txtTelefono.setText("");
+            new Pedidos().setVisible(true);
             }
             else{
                 JOptionPane.showMessageDialog(panel, "Ya existe un cliente con este número de cúdula.", "Error", JOptionPane.ERROR_MESSAGE);
