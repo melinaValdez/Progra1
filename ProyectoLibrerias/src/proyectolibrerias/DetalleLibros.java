@@ -1,9 +1,9 @@
 package proyectolibrerias;
 
-import com.google.cloud.translate.Translate;
+/*import com.google.cloud.translate.Translate;
 import com.google.cloud.translate.Translate.TranslateOption;
 import com.google.cloud.translate.TranslateOptions;
-import com.google.cloud.translate.Translation;
+import com.google.cloud.translate.Translation;*/
 
 public class DetalleLibros extends javax.swing.JFrame {
 
@@ -155,7 +155,7 @@ public class DetalleLibros extends javax.swing.JFrame {
     }//GEN-LAST:event_cbLenguajeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    Translate translate = TranslateOptions.newBuilder().setApiKey("AIzaSyB_gzIVU6MICiakzx6Sv1-FrZZahlgelIk").build().getService();
+    /*Translate translate = TranslateOptions.newBuilder().setApiKey("AIzaSyB_gzIVU6MICiakzx6Sv1-FrZZahlgelIk").build().getService();
 
     // Texto para traducir
     String text = txtDescripcion.getText();
@@ -166,7 +166,7 @@ public class DetalleLibros extends javax.swing.JFrame {
             text,
             TranslateOption.sourceLanguage("es"),
             TranslateOption.targetLanguage(cbLenguaje.getSelectedItem().toString()));
-    Traducido.setText(translation.getTranslatedText());
+    Traducido.setText(translation.getTranslatedText());*/
     
     
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -215,7 +215,7 @@ public class DatosLibreria extends javax.swing.JFrame {
             libreria.setPais(txtPais.getText().toUpperCase());
             libreria.setTelefono(txtTelefono.getText().toUpperCase());
             libreria.setUbicacion(txtUbicacion.getText().toUpperCase());
-            JOptionPane.showMessageDialog(panel, "La libreria se modificó correctamente.", "Libreria modificada", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "La librería se modificó correctamente.", "Librería modificada", JOptionPane.INFORMATION_MESSAGE);
             hide();
         }
         else{
@@ -224,7 +224,7 @@ public class DatosLibreria extends javax.swing.JFrame {
             boolean validacion = verificar(nuevaLibreria.getNombre(),listaLibs);
             if(validacion){
                 listaLibs.append(nuevaLibreria);
-                JOptionPane.showMessageDialog(panel, "La libreria se añadió correctamente.", "Libreria agregada", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(panel, "La librería se añadió correctamente.", "Libreria agregada", JOptionPane.INFORMATION_MESSAGE);
                 hide();
             }
             else{
