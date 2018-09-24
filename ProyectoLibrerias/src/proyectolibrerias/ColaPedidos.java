@@ -17,6 +17,7 @@ public class ColaPedidos {
 
     private NodoCola anterior, posterior; // dos apuntadores de TDA Cola
     private int contador; // lleva el control de elementos encolados
+    private static ColaPedidos instanciaPedidos = null;
 
     public ColaPedidos() {
         this.anterior = this.posterior = null;
@@ -29,7 +30,12 @@ public class ColaPedidos {
         }
         return contador;
     }
-
+    public static ColaPedidos getColaInstance() {
+       if(instanciaPedidos == null) {
+          instanciaPedidos = new ColaPedidos();
+       }
+       return instanciaPedidos;
+    }
     
     public void anular() {
         this.anterior = this.posterior = null;
@@ -117,7 +123,7 @@ public class ColaPedidos {
             if (this.isEmpty()) {
                 throw new ColaException("La cola esta vacia");
             }
-            resultado = "COLA ENLAZADA CON NodoCola CABECERA   ";
+            resultado = "Pedidos pendiendes del cliente\n\n: ";
             NodoCola aux = anterior; // recorrer con el principio de colas
             while (aux != null) {
                 resultado += aux.elemento + " ";

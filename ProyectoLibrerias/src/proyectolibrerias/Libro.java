@@ -19,7 +19,7 @@ public class Libro {
     public int precio;
     public String tema;
     public String nombreLibreria;
-    
+
     //Constructor
     public Libro(String pNombre, int pPrecio, int pCantDisponible, String pTema){
         issn = issnContador;
@@ -32,7 +32,7 @@ public class Libro {
 
     public Libro() {
     }
-    
+
     //Getters y setters
     public int getIssn() {
         return issn;
@@ -102,7 +102,7 @@ public class Libro {
         this.nombreLibreria = nombreLibreria;
     }
 
-    
-    
-    
+
+
+
 }

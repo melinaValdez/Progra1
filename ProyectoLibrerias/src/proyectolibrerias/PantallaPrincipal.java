@@ -36,6 +36,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnModificarLibro = new javax.swing.JButton();
         btnRegistrarse = new javax.swing.JButton();
         btnModificarLibreria = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -132,6 +133,16 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         getContentPane().add(btnModificarLibreria);
         btnModificarLibreria.setBounds(70, 420, 141, 56);
 
+        jButton1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        jButton1.setText("Atencion de pedidos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(490, 410, 200, 60);
+
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/background.jpg"))); // NOI18N
         getContentPane().add(lblBackground);
         lblBackground.setBounds(-10, -20, 810, 630);
@@ -169,6 +180,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         new ModificarLibreria().setVisible(true);
     }//GEN-LAST:event_btnModificarLibreriaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new Atenciondepedidos().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,6 +227,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnModificarLibreria;
     private javax.swing.JButton btnModificarLibro;
     private javax.swing.JButton btnRegistrarse;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblAdministrador;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblBienvenido;
