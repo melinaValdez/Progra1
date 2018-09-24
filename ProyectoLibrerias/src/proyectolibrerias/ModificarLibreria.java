@@ -48,7 +48,7 @@ public class ModificarLibreria extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
         lblTitulo.setText("Librerias disponibles");
         getContentPane().add(lblTitulo);
-        lblTitulo.setBounds(240, 30, 317, 48);
+        lblTitulo.setBounds(240, 40, 317, 48);
 
         cbLibreria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbLibreria.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +81,7 @@ public class ModificarLibreria extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblLibrerias);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 110, 720, 150);
+        jScrollPane1.setBounds(40, 120, 720, 150);
 
         btnModificar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         btnModificar.setText("Modificar");

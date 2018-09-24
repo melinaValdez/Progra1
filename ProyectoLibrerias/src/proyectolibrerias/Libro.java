@@ -18,6 +18,7 @@ public class Libro {
     public int cantDisponible;
     public int precio;
     public String tema;
+    public String nombreLibreria;
     
     //Constructor
     public Libro(String pNombre, int pPrecio, int pCantDisponible, String pTema){
@@ -85,10 +86,23 @@ public class Libro {
         this.tema = tema;
     }
 
-    @Override
-    public String toString() {
-        return "Libro{" + "issn=" + issn + ", nombre=" + nombre + ", descripcion=" + descripcion + ", cantVendida=" + cantVendida + ", cantDisponible=" + cantDisponible + ", precio=" + precio + ", tema=" + tema + '}';
+    public static int getIssnContador() {
+        return issnContador;
     }
+
+    public static void setIssnContador(int issnContador) {
+        Libro.issnContador = issnContador;
+    }
+
+    public String getNombreLibreria() {
+        return nombreLibreria;
+    }
+
+    public void setNombreLibreria(String nombreLibreria) {
+        this.nombreLibreria = nombreLibreria;
+    }
+
+    
     
     
 }

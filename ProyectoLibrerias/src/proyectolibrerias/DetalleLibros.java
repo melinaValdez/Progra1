@@ -175,7 +175,7 @@ public class DetalleLibros extends javax.swing.JFrame {
             text,
             TranslateOption.sourceLanguage("es"),
             TranslateOption.targetLanguage(cbLenguaje.getSelectedItem().toString()));
-    jTextArea1.setText(translation.getTranslatedText());
+    jTextArea1.setText(translation.getTranslatedText());*/
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -209,10 +209,8 @@ public class DetalleLibros extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DetalleLibros().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new DetalleLibros().setVisible(true);
         });
     }
 

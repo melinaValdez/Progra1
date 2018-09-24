@@ -50,7 +50,11 @@ public class ListaDoble {
         this.tail = newNode;
         this.size++;
     }
-
+    public void clear() {
+        this.head = this.tail = this.current = new NodoDoble();
+        this.position = -1;
+        this.size = 0;
+    }
     public void remove(){
         //verificar que la lista no está vacía
         if ((this.head == this.current) && (this.head == this.tail)){
