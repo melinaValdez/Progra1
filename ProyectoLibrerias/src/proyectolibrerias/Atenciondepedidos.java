@@ -125,9 +125,9 @@ public class Atenciondepedidos extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
           Cliente usuario = (Cliente)usuarios.goToPos(0);
           
-          final String username = "libreriavirtualtec@gmail.com";
-		final String password = "tareaprogramada1";
-                final String to = usuario.correo;
+          final String username = "libreriavirtualtec@gmail.com";    //correo creado para la libreria
+		final String password = "tareaprogramada1";          
+                final String to = usuario.correo;                   
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -147,8 +147,8 @@ public class Atenciondepedidos extends javax.swing.JFrame {
 			message.setFrom(new InternetAddress(username));
 			message.setRecipients(Message.RecipientType.TO,
 				InternetAddress.parse(to));
-			message.setSubject("Pedidos Pendientes");
-			message.setText("Ya han sido enviados sus pedidos.\n Gracias por su compra.");
+			message.setSubject("Pedidos Pendientes");             //sujeto del correo
+			message.setText("Ya han sido enviados sus pedidos.\n Gracias por su compra.");  //mensaje del correo
 
 			Transport.send(message);
 
