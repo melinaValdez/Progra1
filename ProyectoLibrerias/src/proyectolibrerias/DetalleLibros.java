@@ -1,9 +1,9 @@
 package proyectolibrerias;
 
-import com.google.cloud.translate.Translate;
+/*import com.google.cloud.translate.Translate;
 import com.google.cloud.translate.Translate.TranslateOption;
 import com.google.cloud.translate.TranslateOptions;
-import com.google.cloud.translate.Translation;
+import com.google.cloud.translate.Translation;*/
 
 public class DetalleLibros extends javax.swing.JFrame {
 
@@ -22,7 +22,7 @@ public class DetalleLibros extends javax.swing.JFrame {
         txtCantDis.setText(pcantidaddisponible);
         txtcantVen.setText(pcantidadvendida);
         txtPrecio.setText(pprecio);
-        TextDescipcion.append(pdescripcion);  
+        TextDescipcion.append(pdescripcion);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -164,7 +164,7 @@ public class DetalleLibros extends javax.swing.JFrame {
     }//GEN-LAST:event_cbLenguajeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    Translate translate = TranslateOptions.newBuilder().setApiKey("AIzaSyB_gzIVU6MICiakzx6Sv1-FrZZahlgelIk").build().getService();
+    /*Translate translate = TranslateOptions.newBuilder().setApiKey("AIzaSyB_gzIVU6MICiakzx6Sv1-FrZZahlgelIk").build().getService();
 
     // Texto para traducir
     String text = TextDescipcion.getText();
@@ -176,8 +176,8 @@ public class DetalleLibros extends javax.swing.JFrame {
             TranslateOption.sourceLanguage("es"),
             TranslateOption.targetLanguage(cbLenguaje.getSelectedItem().toString()));
     jTextArea1.setText(translation.getTranslatedText());
-    
-    
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -187,7 +187,7 @@ public class DetalleLibros extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

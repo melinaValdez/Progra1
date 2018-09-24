@@ -2,6 +2,32 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/NodoSimple.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/ModificarLibro.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/NodoDoble.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/ModificarLibreria.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/ListaSimple.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/Cliente.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/DatosLibro.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/NodoCola.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/BuscarLibros.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/ColaException.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/ProyectoLibrerias.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/DetalleLibros.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/Libro.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/Registro.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/PilaLibros.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/ListaDoble.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/PantallaPrincipal.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/DatosLibreria.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/traducir.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/Libreria.java</file>
+            <file>file:/C:/Users/Melina/Documents/GitHub/Progra1/ProyectoLibrerias/src/proyectolibrerias/NodoLibrosVistos.java</file>
+        </group>
+>>>>>>> b8374bcbf7f13eaf96404f044f10c130741d3758
     </open-files>
 </project-private>

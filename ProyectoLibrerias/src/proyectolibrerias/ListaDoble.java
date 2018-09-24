@@ -119,11 +119,13 @@ public class ListaDoble {
         }
         return current.getElement();
     }
+    //Estas funciones se realizan acá debido a que son muy utilizadas en el programa
+    //Ambas funcionan con un issn como llave y la librería donde se encuentran
     public Object buscarPorIssn(int pIssn, Libreria pLibreria){
         Libro libro;
-        for (int cont = 0; cont < pLibreria.getListaLibros().getSize(); cont++){
+        for (int cont = 0; cont < pLibreria.getListaLibros().getSize(); cont++){ //Acá recorre la lista de libros de su librería respectiva
             libro = (Libro)pLibreria.getListaLibros().goToPos(cont);
-            if (libro.getIssn() == pIssn ){
+            if (libro.getIssn() == pIssn ){ //Si se encuentra el libro con el issn dado se retorna
                 return libro;
             }
         }
