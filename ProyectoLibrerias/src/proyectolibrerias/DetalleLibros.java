@@ -1,9 +1,9 @@
 package proyectolibrerias;
 
-/*import com.google.cloud.translate.Translate;
+import com.google.cloud.translate.Translate;
 import com.google.cloud.translate.Translate.TranslateOption;
 import com.google.cloud.translate.TranslateOptions;
-import com.google.cloud.translate.Translation;*/
+import com.google.cloud.translate.Translation;
 
 public class DetalleLibros extends javax.swing.JFrame {
 
@@ -14,15 +14,13 @@ public class DetalleLibros extends javax.swing.JFrame {
         initComponents();
         cbLenguaje.removeAllItems();
     }
-    public DetalleLibros(String pIssn,String pNombre,String pTema,String pcantidaddisponible,String pcantidadvendida,String pprecio, String pdescripcion){
+    public DetalleLibros(String libreria,String nombre,String precio ,String tema,String disponibles){
         initComponents();
-        TxtIssn.setText(pIssn);
-        txtTema.setText(pTema);
-        txtNombre.setText(pNombre);
-        txtCantDis.setText(pcantidaddisponible);
-        txtcantVen.setText(pcantidadvendida);
-        txtPrecio.setText(pprecio);
-        TextDescipcion.append(pdescripcion);
+        txtTema.setText(tema);
+        txtNombre.setText(nombre);
+        txtCantDis.setText(disponibles);
+        txtPrecio.setText(precio);
+        TxtIssn.setText(libreria);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -46,7 +44,6 @@ public class DetalleLibros extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         Descipcion = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -90,7 +87,7 @@ public class DetalleLibros extends javax.swing.JFrame {
         getContentPane().add(cbLenguaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 100, 30));
 
         TxtIssn.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
-        getContentPane().add(TxtIssn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 160, 30));
+        getContentPane().add(TxtIssn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 160, 30));
 
         txtTema.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         getContentPane().add(txtTema, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 160, 30));
@@ -108,7 +105,7 @@ public class DetalleLibros extends javax.swing.JFrame {
         getContentPane().add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, 230, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
-        jLabel1.setText("Issn: ");
+        jLabel1.setText("Libreria: ");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
@@ -120,12 +117,8 @@ public class DetalleLibros extends javax.swing.JFrame {
         getContentPane().add(Descipcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
-        jLabel3.setText("Cantidad Vendida: ");
+        jLabel3.setText("Cantidad Disponible: ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
-        jLabel4.setText("Cantidad Vendida: ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
         jLabel5.setText("Precio: ");
@@ -164,7 +157,7 @@ public class DetalleLibros extends javax.swing.JFrame {
     }//GEN-LAST:event_cbLenguajeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    /*Translate translate = TranslateOptions.newBuilder().setApiKey("AIzaSyB_gzIVU6MICiakzx6Sv1-FrZZahlgelIk").build().getService();
+    Translate translate = TranslateOptions.newBuilder().setApiKey("AIzaSyB_gzIVU6MICiakzx6Sv1-FrZZahlgelIk").build().getService();
 
     // Texto para traducir
     String text = TextDescipcion.getText();
@@ -175,7 +168,7 @@ public class DetalleLibros extends javax.swing.JFrame {
             text,
             TranslateOption.sourceLanguage("es"),
             TranslateOption.targetLanguage(cbLenguaje.getSelectedItem().toString()));
-    jTextArea1.setText(translation.getTranslatedText());*/
+    jTextArea1.setText(translation.getTranslatedText());
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -183,7 +176,6 @@ public class DetalleLibros extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -227,7 +219,6 @@ public class DetalleLibros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

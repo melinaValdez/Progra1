@@ -306,15 +306,17 @@ Libreria libFiltrada = new Libreria();
         
         int indice = tablaResultados.getSelectedRow();
         
-        String issn = (String) modelo.getValueAt(indice, 1);
-        String nombre = (String) modelo.getValueAt(indice, 0);
-        String tema = (String) modelo.getValueAt(indice, 2);
-        String disponible = (String) modelo.getValueAt(indice, 3);
-        String vendidos = (String) modelo.getValueAt(indice, 4);
-        String precio = (String) modelo.getValueAt(indice, 5);
-        String descripcion = (String) modelo.getValueAt(indice, 6);
+        String libreria = (String) modelo.getValueAt(indice, 0);
+        String nombre = (String) modelo.getValueAt(indice, 1);
+        int pprecio = (int) modelo.getValueAt(indice, 2);
+        String tema = (String) modelo.getValueAt(indice, 3);
+        int pdisponibles = (int)modelo.getValueAt(indice,4);
         
-        new DetalleLibros(issn, nombre, tema, disponible, vendidos, precio, descripcion).setVisible(true);
+        String precio = Integer.toString(pprecio);
+        String disponibles = Integer.toString(pdisponibles);
+        
+        
+        new DetalleLibros(libreria,nombre,precio,tema,disponibles).setVisible(true);
     }//GEN-LAST:event_tablaResultadosMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
